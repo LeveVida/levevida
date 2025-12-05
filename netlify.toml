@@ -1,0 +1,112 @@
+# Configuração do Netlify - Leve Vida
+# Domínio: www.levevida.blog.br
+
+[build]
+  # Diretório onde estão os arquivos do site (dentro da pasta levevida)
+  publish = "levevida"
+  
+  # Comando de build vazio (site estático HTML)
+  command = ""
+
+# Redirecionamentos e Regras
+[[redirects]]
+  # SPA fallback - todas as rotas para index.html
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Redirecionar HTTP para HTTPS
+[[redirects]]
+  from = "http://levevida.blog.br/*"
+  to = "https://www.levevida.blog.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.levevida.blog.br/*"
+  to = "https://www.levevida.blog.br/:splat"
+  status = 301
+  force = true
+
+# Redirecionar apex domain para www
+[[redirects]]
+  from = "https://levevida.blog.br/*"
+  to = "https://www.levevida.blog.br/:splat"
+  status = 301
+  force = true
+
+# Headers de Segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache para CSS (1 ano)
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para JavaScript (1 ano)
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para Assets (1 ano)
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para Imagens (1 ano)
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache para Guias (1 hora)
+[[headers]]
+  for = "/guias/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Cache menor para HTML (1 hora)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Cache para JSON de conteúdo (5 minutos)
+[[headers]]
+  for = "/content/*.json"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+# Configurações por Ambiente
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "staging" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
+
+# Configurações de Plugin (opcional)
+[build.processing]
+  skip_processing = false
+[build.processing.css]
+  bundle = true
+  minify = true
+[build.processing.js]
+  bundle = true
+  minify = true
+[build.processing.html]
+  pretty_urls = true
+[build.processing.images]
+  compress = true
