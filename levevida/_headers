@@ -1,0 +1,35 @@
+# Headers do Netlify - Leve Vida
+# Este arquivo deve estar dentro da pasta levevida/
+
+# Headers de segurança para todas as páginas
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+# Cache longo para assets estáticos
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache médio para guias
+/guias/*
+  Cache-Control: public, max-age=3600
+
+# Cache curto para HTML
+/*.html
+  Cache-Control: public, max-age=3600
+
+# Cache muito curto para JSON de conteúdo
+/content/*.json
+  Cache-Control: public, max-age=300
