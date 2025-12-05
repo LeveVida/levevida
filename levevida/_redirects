@@ -1,10 +1,5 @@
-# Redirects do Netlify - Leve Vida
-# Este arquivo deve estar dentro da pasta levevida/
-
-# Redirecionar HTTP para HTTPS e apex para www
-http://levevida.blog.br/*  https://www.levevida.blog.br/:splat  301!
-http://www.levevida.blog.br/*  https://www.levevida.blog.br/:splat  301!
+# Apex para www
 https://levevida.blog.br/*  https://www.levevida.blog.br/:splat  301!
 
-# SPA fallback - todas as outras rotas para index.html
+# SPA fallback
 /*  /index.html  200
