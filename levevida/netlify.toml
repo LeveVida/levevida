@@ -1,0 +1,93 @@
+# Configuração do Netlify para Leve Vida
+# Site: www.levevida.blog.br
+
+[build]
+  # Diretório onde estão os arquivos do site
+  publish = "levevida"
+  
+  # Comando de build (vazio pois é site estático)
+  command = ""
+
+# Configuração de redirecionamentos
+[[redirects]]
+  # SPA fallback - redireciona todas as rotas para index.html
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Headers de segurança
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Previne clickjacking
+    X-Frame-Options = "DENY"
+    
+    # Previne MIME type sniffing
+    X-Content-Type-Options = "nosniff"
+    
+    # Proteção XSS
+    X-XSS-Protection = "1; mode=block"
+    
+    # Política de referrer
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Permissões do navegador
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache para assets estáticos
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache menor para HTML
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+# Redirecionamento HTTP para HTTPS (configurado automaticamente pelo Netlify)
+# mas pode ser forçado com:
+[[redirects]]
+  from = "http://levevida.blog.br/*"
+  to = "https://www.levevida.blog.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.levevida.blog.br/*"
+  to = "https://www.levevida.blog.br/:splat"
+  status = 301
+  force = true
+
+# Redirecionar domínio sem www para www (se preferir)
+[[redirects]]
+  from = "https://levevida.blog.br/*"
+  to = "https://www.levevida.blog.br/:splat"
+  status = 301
+  force = true
+
+# Configurações de contexto para diferentes branches
+[context.production]
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  environment = { NODE_ENV = "staging" }
+
+[context.branch-deploy]
+  environment = { NODE_ENV = "development" }
