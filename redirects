@@ -1,0 +1,12 @@
+# Redirects do Netlify - Leve Vida
+# Este arquivo DEVE estar na RAIZ do repositório
+
+# Redirect do domínio apex (sem www) para www
+https://levevida.blog.br/*  https://www.levevida.blog.br/:splat  301!
+
+# Redirects de páginas antigas (se houver)
+# /blog/*  /artigos/:splat  301
+# /guia/*  /guias/:splat  301
+
+# SPA fallback - DEVE ser a última regra
+/*  /index.html  200
