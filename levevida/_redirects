@@ -1,5 +1,0 @@
-# Apex para www
-https://levevida.blog.br/*  https://www.levevida.blog.br/:splat  301!
-
-# SPA fallback
-/*  /index.html  200
