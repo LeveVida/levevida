@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO será aplicado via JavaScript -->
-    <title>Carregando...</title>
+    <title>Carregando artigo... | Leve Vida</title>
+    <meta name="description" content="Leve Vida - Artigo sobre viagens">
     
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,13 +16,34 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         /* Loading state */
-        #artigo-conteudo:empty::before {
-            content: "Carregando artigo...";
-            display: block;
-            text-align: center;
-            padding: 4rem 2rem;
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            margin-top: 1.5rem;
             font-size: 1.2rem;
-            color: #666;
+            font-weight: 500;
         }
         
         /* Container para artigos relacionados */
@@ -156,19 +178,28 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Hide loading após carregar */
+        body.loaded .loading-container {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER (será injetado via JS se necessário) -->
+    <!-- LOADING SCREEN -->
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <p class="loading-text">Carregando artigo...</p>
+    </div>
     
     <!-- CONTEÚDO DO ARTIGO (injetado via JS) -->
-    <div id="artigo-conteudo"></div>
+    <div id="artigo-conteudo" style="display: none;"></div>
     
     <!-- ARTIGOS RELACIONADOS (injetado via JS) -->
-    <div id="artigos-relacionados"></div>
+    <div id="artigos-relacionados" style="display: none;"></div>
     
     <!-- BOTÃO VOLTAR -->
-    <div style="text-align: center; margin: 3rem 0;">
+    <div style="text-align: center; margin: 3rem 0; display: none;" id="btn-voltar-container">
         <a href="artigos.html" class="voltar-artigos">
             <i class="fas fa-arrow-left"></i> Ver todos os artigos
         </a>
@@ -176,7 +207,35 @@
     
     <!-- SCRIPTS -->
     <script src="assets/js/config.js"></script>
-    <script type="module" src="assets/js/artigos.js"></script>
+    
+    <!-- SISTEMA DE ARTIGOS REFATORADO -->
+    <script src="assets/js/artigos-refatorado.js"></script>
+    
+    <script>
+        // Script para mostrar conteúdo após carregar
+        document.addEventListener('DOMContentLoaded', () => {
+            // Aguardar um pouco para garantir que tudo carregou
+            setTimeout(() => {
+                const artigoConteudo = document.getElementById('artigo-conteudo');
+                const artigosRelacionados = document.getElementById('artigos-relacionados');
+                const btnVoltar = document.getElementById('btn-voltar-container');
+                
+                if (artigoConteudo && artigoConteudo.innerHTML.trim() !== '') {
+                    // Artigo carregou com sucesso
+                    document.body.classList.add('loaded');
+                    artigoConteudo.style.display = 'block';
+                    artigosRelacionados.style.display = 'block';
+                    btnVoltar.style.display = 'block';
+                } else {
+                    // Erro ao carregar - ainda assim esconder loading
+                    setTimeout(() => {
+                        document.body.classList.add('loaded');
+                        artigoConteudo.style.display = 'block';
+                    }, 1000);
+                }
+            }, 500);
+        });
+    </script>
     
     <!-- Google Analytics (se configurado) -->
     <script>
