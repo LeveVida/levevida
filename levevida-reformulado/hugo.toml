@@ -1,7 +1,6 @@
 baseURL = 'https://levevida.blog.br/'
 languageCode = 'pt-br'
 title = 'Leve Vida - Voe Mais, Pague Menos'
-theme = 'levevida-theme'
 
 [params]
   description = 'Aprenda estratégias reais de acúmulo de milhas para viajar mais gastando menos. E-book completo com planilhas e ferramentas práticas.'
