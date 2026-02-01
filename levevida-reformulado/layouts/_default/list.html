@@ -1,0 +1,269 @@
+{{ define "main" }}
+<div class="list-page">
+    <!-- Header -->
+    <header class="list-header">
+        <div class="container">
+            <h1 class="list-title">{{ .Title }}</h1>
+            {{ if .Description }}
+            <p class="list-description">{{ .Description }}</p>
+            {{ end }}
+        </div>
+    </header>
+    
+    <!-- Content -->
+    <div class="list-content">
+        <div class="container">
+            {{ if .Content }}
+            <div class="list-intro">
+                {{ .Content }}
+            </div>
+            {{ end }}
+            
+            {{ if .Pages }}
+            <div class="posts-grid">
+                {{ range .Pages }}
+                <article class="post-card">
+                    {{ if .Params.image }}
+                    <div class="post-image">
+                        <a href="{{ .Permalink }}">
+                            <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy">
+                        </a>
+                    </div>
+                    {{ end }}
+                    
+                    <div class="post-content">
+                        {{ if .Params.categoria }}
+                        <span class="post-category">{{ .Params.categoria }}</span>
+                        {{ end }}
+                        
+                        <h2 class="post-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h2>
+                        
+                        {{ if .Description }}
+                        <p class="post-excerpt">{{ .Description }}</p>
+                        {{ else if .Summary }}
+                        <p class="post-excerpt">{{ .Summary }}</p>
+                        {{ end }}
+                        
+                        <div class="post-meta">
+                            {{ if .Date }}
+                            <span class="post-date">
+                                <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                </svg>
+                                {{ .Date.Format "02/01/2006" }}
+                            </span>
+                            {{ end }}
+                            
+                            {{ if .ReadingTime }}
+                            <span class="post-reading-time">
+                                <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                                </svg>
+                                {{ .ReadingTime }} min
+                            </span>
+                            {{ end }}
+                        </div>
+                        
+                        <a href="{{ .Permalink }}" class="read-more">
+                            Ler mais →
+                        </a>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+            {{ else }}
+            <div class="no-posts">
+                <p>Ainda não há conteúdo publicado nesta seção. Volte em breve!</p>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<style>
+/* List Page Styles */
+.list-page {
+    padding: 2rem 0;
+}
+
+.list-header {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.list-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.list-description {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Content */
+.list-content {
+    padding: 4rem 0;
+}
+
+.list-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+/* Posts Grid */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+}
+
+.post-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.post-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+
+.post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image img {
+    transform: scale(1.1);
+}
+
+.post-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-category {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.post-title a:hover {
+    color: #667eea;
+}
+
+.post-excerpt {
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+    flex: 1;
+    line-height: 1.6;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+.post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.post-meta svg {
+    opacity: 0.7;
+}
+
+.read-more {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.read-more:hover {
+    color: #764ba2;
+    transform: translateX(5px);
+}
+
+/* No Posts */
+.no-posts {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f8f9fa;
+    border-radius: 15px;
+}
+
+.no-posts p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .list-title {
+        font-size: 2rem;
+    }
+    
+    .list-description {
+        font-size: 1.1rem;
+    }
+    
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .post-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+</style>
+{{ end }}

@@ -1,0 +1,436 @@
+<!-- ========================================
+     POP-UP DE SAÍDA (EXIT INTENT)
+     Coloque este código no final de layouts/partials/footer.html
+     ======================================== -->
+
+<div id="exitPopup" class="exit-popup" style="display: none;">
+    <div class="exit-popup-overlay"></div>
+    <div class="exit-popup-content">
+        <button class="exit-popup-close" aria-label="Fechar">&times;</button>
+        
+        <div class="exit-popup-body">
+            <div class="exit-popup-emoji">🎁</div>
+            
+            <h2 class="exit-popup-title">Espere! Antes de Sair...</h2>
+            
+            <p class="exit-popup-subtitle">
+                Ganhe <strong>10% de DESCONTO</strong> no e-book ROTA DAS MILHAS
+            </p>
+            
+            <div class="exit-popup-offer">
+                <div class="price-strike">De R$ 97 por R$ 47</div>
+                <div class="price-special">
+                    <span class="price-label">Por apenas</span>
+                    <span class="price-value">R$ 42,30</span>
+                </div>
+                <div class="price-savings">Economia total de R$ 54,70!</div>
+            </div>
+            
+            <div class="exit-popup-benefits">
+                <h3>🎯 O que você vai receber:</h3>
+                <ul>
+                    <li>✅ 12 Capítulos Completos</li>
+                    <li>✅ Planilhas e Calculadoras</li>
+                    <li></li>
+                    <li>✅ Atualizações Vitalícias</li>
+                    <li>✅ Garantia de 7 Dias</li>
+                </ul>
+            </div>
+            
+            <div class="exit-popup-urgency">
+                ⏰ <strong>Oferta válida apenas para os próximos 10 minutos!</strong>
+            </div>
+            
+            <a href="/ebooks/rota-das-milhas/?desconto=10OFF" class="exit-popup-btn">
+                🚀 Quero Meu Desconto Agora!
+            </a>
+            
+            <p class="exit-popup-disclaimer">
+                Use o cupom <strong>10OFF</strong> no checkout
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Pop-up de Saída - Estilos */
+.exit-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.exit-popup-content {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+.exit-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-popup-close:hover {
+    color: #333;
+    transform: rotate(90deg);
+}
+
+.exit-popup-body {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.exit-popup-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s infinite;
+}
+
+.exit-popup-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.exit-popup-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.exit-popup-subtitle strong {
+    color: #e74c3c;
+    font-size: 1.5rem;
+}
+
+.exit-popup-offer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.price-strike {
+    text-decoration: line-through;
+    opacity: 0.8;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-special {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.price-label {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.price-value {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.price-savings {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.exit-popup-benefits {
+    text-align: left;
+    margin: 2rem 0;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.exit-popup-benefits h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.exit-popup-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exit-popup-benefits li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.exit-popup-urgency {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+.exit-popup-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+    margin: 1.5rem 0;
+}
+
+.exit-popup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(231, 76, 60, 0.6);
+}
+
+.exit-popup-disclaimer {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+.exit-popup-disclaimer strong {
+    color: #e74c3c;
+    background: #fff3cd;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .exit-popup-body {
+        padding: 2rem 1.5rem;
+    }
+    
+    .exit-popup-title {
+        font-size: 1.5rem;
+    }
+    
+    .exit-popup-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .price-value {
+        font-size: 2.5rem;
+    }
+    
+    .exit-popup-btn {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+}
+</style>
+
+<script>
+// Exit Intent Pop-up - JavaScript
+(function() {
+    'use strict';
+    
+    const exitPopup = document.getElementById('exitPopup');
+    const closeBtn = exitPopup.querySelector('.exit-popup-close');
+    const overlay = exitPopup.querySelector('.exit-popup-overlay');
+    
+    let popupShown = false;
+    let exitIntentTriggered = false;
+    
+    // Verifica se já foi mostrado hoje
+    function wasShownToday() {
+        const lastShown = localStorage.getItem('exitPopupShown');
+        if (!lastShown) return false;
+        
+        const lastShownDate = new Date(lastShown);
+        const today = new Date();
+        
+        return lastShownDate.toDateString() === today.toDateString();
+    }
+    
+    // Mostra o pop-up
+    function showPopup() {
+        if (popupShown || wasShownToday()) return;
+        
+        exitPopup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        popupShown = true;
+        
+        // Salva que foi mostrado hoje
+        localStorage.setItem('exitPopupShown', new Date().toISOString());
+        
+        // Google Analytics (se disponível)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'popup_shown', {
+                'event_category': 'exit_intent',
+                'event_label': 'discount_offer'
+            });
+        }
+    }
+    
+    // Fecha o pop-up
+    function closePopup() {
+        exitPopup.style.display = 'none';
+        document.body.style.overflow = '';
+        
+        // Google Analytics (se disponível)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'popup_closed', {
+                'event_category': 'exit_intent',
+                'event_label': 'discount_offer'
+            });
+        }
+    }
+    
+    // Detecta movimento de saída
+    document.addEventListener('mouseleave', function(e) {
+        // Só dispara se o mouse sair pela parte superior
+        if (e.clientY <= 0 && !exitIntentTriggered) {
+            exitIntentTriggered = true;
+            showPopup();
+        }
+    });
+    
+    // Também mostra após 30 segundos na página (backup)
+    setTimeout(function() {
+        if (!exitIntentTriggered && !popupShown) {
+            showPopup();
+        }
+    }, 30000); // 30 segundos
+    
+    // Eventos de fechamento
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', closePopup);
+    
+    // Fecha com tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && popupShown) {
+            closePopup();
+        }
+    });
+    
+    // Track de clique no botão
+    const ctaBtn = exitPopup.querySelector('.exit-popup-btn');
+    ctaBtn.addEventListener('click', function() {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'popup_conversion', {
+                'event_category': 'exit_intent',
+                'event_label': 'clicked_cta'
+            });
+        }
+    });
+    
+    // Não mostrar em dispositivos móveis (opcional)
+    // Descomente as linhas abaixo se quiser desabilitar no mobile
+    /*
+    if (window.innerWidth <= 768) {
+        return; // Não executa no mobile
+    }
+    */
+    
+})();
+</script>
+
+<!-- ========================================
+     INSTRUÇÕES DE USO:
+     
+     1. Cole este código completo no final do arquivo:
+        layouts/partials/footer.html
+     
+     2. O pop-up aparecerá quando:
+        - O usuário mover o mouse para sair da página
+        - OU após 30 segundos na página
+     
+     3. O pop-up só aparece 1x por dia por usuário
+     
+     4. IMPORTANTE: Configure o cupom "10OFF" na sua 
+        plataforma de vendas (Hotmart/Kiwify)
+     
+     5. Para desabilitar no mobile, descomente as 
+        últimas linhas do JavaScript
+     
+     6. Para mudar a oferta, edite:
+        - Preço (R$ 42,30)
+        - Texto do cupom (10OFF)
+        - Link do botão
+     
+     ======================================== -->
