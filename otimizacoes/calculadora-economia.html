@@ -1,0 +1,563 @@
+<!-- ========================================
+     CALCULADORA DE ECONOMIA COM MILHAS
+     Pode ser usada em qualquer página
+     Recomendado: Homepage ou página do e-book
+     ======================================== -->
+
+<div class="miles-calculator">
+    <div class="calculator-header">
+        <h2 class="calculator-title">💰 Calculadora de Economia com Milhas</h2>
+        <p class="calculator-subtitle">Descubra quanto você pode economizar viajando com milhas</p>
+    </div>
+    
+    <div class="calculator-body">
+        <div class="calculator-form">
+            <!-- Destino -->
+            <div class="form-group">
+                <label for="destination">🌍 Destino da Viagem</label>
+                <select id="destination" class="form-control">
+                    <option value="">Selecione um destino...</option>
+                    <optgroup label="Nacional">
+                        <option value="rio" data-price="800" data-miles="12000">Rio de Janeiro</option>
+                        <option value="salvador" data-price="900" data-miles="15000">Salvador</option>
+                        <option value="fortaleza" data-price="850" data-miles="13000">Fortaleza</option>
+                        <option value="recife" data-price="820" data-miles="12500">Recife</option>
+                        <option value="porto-alegre" data-price="750" data-miles="11000">Porto Alegre</option>
+                    </optgroup>
+                    <optgroup label="América do Sul">
+                        <option value="buenos-aires" data-price="1800" data-miles="20000">Buenos Aires</option>
+                        <option value="santiago" data-price="2000" data-miles="25000">Santiago</option>
+                        <option value="lima" data-price="2200" data-miles="28000">Lima</option>
+                        <option value="bogota" data-price="2100" data-miles="26000">Bogotá</option>
+                    </optgroup>
+                    <optgroup label="América do Norte">
+                        <option value="miami" data-price="3500" data-miles="30000">Miami</option>
+                        <option value="new-york" data-price="4200" data-miles="35000">Nova York</option>
+                        <option value="orlando" data-price="3600" data-miles="32000">Orlando</option>
+                        <option value="los-angeles" data-price="5000" data-miles="40000">Los Angeles</option>
+                    </optgroup>
+                    <optgroup label="Europa">
+                        <option value="lisboa" data-price="4500" data-miles="35000">Lisboa</option>
+                        <option value="paris" data-price="5500" data-miles="40000">Paris</option>
+                        <option value="londres" data-price="5800" data-miles="42000">Londres</option>
+                        <option value="roma" data-price="5300" data-miles="38000">Roma</option>
+                        <option value="barcelona" data-price="5100" data-miles="37000">Barcelona</option>
+                    </optgroup>
+                    <optgroup label="Ásia">
+                        <option value="dubai" data-price="6500" data-miles="50000">Dubai</option>
+                        <option value="tokyo" data-price="7500" data-miles="60000">Tóquio</option>
+                        <option value="bangkok" data-price="6800" data-miles="55000">Bangkok</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <!-- Classe -->
+            <div class="form-group">
+                <label for="travelClass">✈️ Classe de Viagem</label>
+                <select id="travelClass" class="form-control">
+                    <option value="economy" data-multiplier="1">Econômica</option>
+                    <option value="premium" data-multiplier="1.5">Econômica Premium</option>
+                    <option value="business" data-multiplier="3">Executiva</option>
+                    <option value="first" data-multiplier="5">Primeira Classe</option>
+                </select>
+            </div>
+            
+            <!-- Número de passageiros -->
+            <div class="form-group">
+                <label for="passengers">👥 Número de Passageiros</label>
+                <input type="number" id="passengers" class="form-control" min="1" max="10" value="1">
+            </div>
+            
+            <!-- Botão Calcular -->
+            <button id="calculateBtn" class="btn-calculate">
+                🧮 Calcular Economia
+            </button>
+        </div>
+        
+        <!-- Resultado -->
+        <div id="calculatorResult" class="calculator-result" style="display: none;">
+            <div class="result-card">
+                <div class="result-header">
+                    <h3>📊 Sua Economia Potencial</h3>
+                </div>
+                
+                <div class="result-comparison">
+                    <div class="result-item result-cash">
+                        <div class="result-label">💵 Comprando com Dinheiro</div>
+                        <div class="result-value" id="cashPrice">R$ 0,00</div>
+                    </div>
+                    
+                    <div class="result-arrow">→</div>
+                    
+                    <div class="result-item result-miles">
+                        <div class="result-label">✈️ Usando Milhas</div>
+                        <div class="result-value" id="milesPrice">
+                            <span id="milesAmount">0</span> milhas<br>
+                            <small>+ <span id="taxesAmount">R$ 0,00</span> taxas</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="result-savings">
+                    <div class="savings-amount">
+                        <span class="savings-label">Você Economiza:</span>
+                        <span class="savings-value" id="totalSavings">R$ 0,00</span>
+                    </div>
+                    <div class="savings-percentage" id="savingsPercent">0%</div>
+                </div>
+                
+                <div class="result-breakdown">
+                    <h4>📈 Detalhamento</h4>
+                    <ul>
+                        <li><strong>Destino:</strong> <span id="resultDestination">-</span></li>
+                        <li><strong>Classe:</strong> <span id="resultClass">-</span></li>
+                        <li><strong>Passageiros:</strong> <span id="resultPassengers">-</span></li>
+                        <li><strong>Economia por pessoa:</strong> <span id="savingsPerPerson">R$ 0,00</span></li>
+                    </ul>
+                </div>
+                
+                <div class="result-cta">
+                    <p class="cta-text">
+                        <strong>🎯 Quer aprender a acumular essas milhas?</strong><br>
+                        Com nosso e-book você descobre exatamente como fazer isso!
+                    </p>
+                    <a href="/ebooks/rota-das-milhas/" class="btn-cta">
+                        📚 Conhecer o E-book ROTA DAS MILHAS
+                    </a>
+                    <p class="cta-investment">
+                        Investimento de apenas R$ 47 para economizar milhares! 🚀
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Calculadora de Milhas - Estilos */
+.miles-calculator {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.calculator-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.calculator-title {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.calculator-subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+.calculator-body {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.form-control {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background: white;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.btn-calculate {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    padding: 1.2rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1rem;
+}
+
+.btn-calculate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+}
+
+.btn-calculate:active {
+    transform: translateY(0);
+}
+
+.calculator-result {
+    margin-top: 2rem;
+    animation: slideIn 0.5s ease-out;
+}
+
+.result-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.result-header h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin: 0 0 2rem 0;
+    font-size: 1.8rem;
+}
+
+.result-comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.result-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.result-cash {
+    border: 3px solid #e74c3c;
+}
+
+.result-miles {
+    border: 3px solid #27ae60;
+}
+
+.result-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #7f8c8d;
+}
+
+.result-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.result-value small {
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.result-arrow {
+    font-size: 2.5rem;
+    color: #3498db;
+    font-weight: bold;
+}
+
+.result-savings {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.savings-amount {
+    display: flex;
+    flex-direction: column;
+}
+
+.savings-label {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.savings-value {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.savings-percentage {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+}
+
+.result-breakdown {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.result-breakdown h4 {
+    margin-top: 0;
+    color: #2c3e50;
+}
+
+.result-breakdown ul {
+    list-style: none;
+    padding: 0;
+}
+
+.result-breakdown li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.result-breakdown li:last-child {
+    border-bottom: none;
+}
+
+.result-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.cta-text {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.btn-cta {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.cta-investment {
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Animações */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .calculator-title {
+        font-size: 1.8rem;
+    }
+    
+    .calculator-body {
+        padding: 1.5rem;
+    }
+    
+    .result-comparison {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .result-arrow {
+        transform: rotate(90deg);
+        font-size: 2rem;
+    }
+    
+    .result-savings {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .savings-value {
+        font-size: 2.5rem;
+    }
+    
+    .savings-percentage {
+        font-size: 2rem;
+    }
+}
+</style>
+
+<script>
+// Calculadora de Milhas - JavaScript
+(function() {
+    'use strict';
+    
+    const destinationSelect = document.getElementById('destination');
+    const travelClassSelect = document.getElementById('travelClass');
+    const passengersInput = document.getElementById('passengers');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const resultDiv = document.getElementById('calculatorResult');
+    
+    calculateBtn.addEventListener('click', calculateSavings);
+    
+    function calculateSavings() {
+        // Validação
+        if (!destinationSelect.value) {
+            alert('Por favor, selecione um destino');
+            return;
+        }
+        
+        // Obter dados
+        const selectedOption = destinationSelect.options[destinationSelect.selectedIndex];
+        const basePrice = parseInt(selectedOption.dataset.price);
+        const baseMiles = parseInt(selectedOption.dataset.miles);
+        const destinationName = selectedOption.text;
+        
+        const classOption = travelClassSelect.options[travelClassSelect.selectedIndex];
+        const classMultiplier = parseFloat(classOption.dataset.multiplier);
+        const className = classOption.text;
+        
+        const passengers = parseInt(passengersInput.value);
+        
+        // Cálculos
+        const finalPrice = basePrice * classMultiplier * passengers;
+        const finalMiles = baseMiles * classMultiplier * passengers;
+        
+        // Taxas (aproximadamente 10-15% do valor)
+        const taxes = finalPrice * 0.12;
+        
+        // Economia
+        const totalSavings = finalPrice - taxes;
+        const savingsPercent = ((totalSavings / finalPrice) * 100).toFixed(0);
+        const savingsPerPerson = totalSavings / passengers;
+        
+        // Atualizar resultado
+        document.getElementById('cashPrice').textContent = formatCurrency(finalPrice);
+        document.getElementById('milesAmount').textContent = formatNumber(finalMiles);
+        document.getElementById('taxesAmount').textContent = formatCurrency(taxes);
+        document.getElementById('totalSavings').textContent = formatCurrency(totalSavings);
+        document.getElementById('savingsPercent').textContent = savingsPercent + '%';
+        
+        document.getElementById('resultDestination').textContent = destinationName;
+        document.getElementById('resultClass').textContent = className;
+        document.getElementById('resultPassengers').textContent = passengers;
+        document.getElementById('savingsPerPerson').textContent = formatCurrency(savingsPerPerson);
+        
+        // Mostrar resultado com animação
+        resultDiv.style.display = 'block';
+        resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        
+        // Google Analytics
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'calculator_used', {
+                'event_category': 'engagement',
+                'event_label': destinationName,
+                'value': Math.round(totalSavings)
+            });
+        }
+    }
+    
+    function formatCurrency(value) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(value);
+    }
+    
+    function formatNumber(value) {
+        return new Intl.NumberFormat('pt-BR').format(value);
+    }
+    
+})();
+</script>
+
+<!-- ========================================
+     INSTRUÇÕES DE USO:
+     
+     1. POSICIONAMENTO:
+        Recomendado colocar em:
+        - Homepage (após hero section)
+        - Página do e-book (antes da oferta)
+        - Página "Sobre Milhas"
+     
+     2. PERSONALIZAÇÃO:
+        Para adicionar/editar destinos, edite o <select id="destination">
+        
+        Estrutura de cada opção:
+        <option value="slug" data-price="PREÇO" data-miles="MILHAS">
+            Nome do Destino
+        </option>
+        
+        Exemplo:
+        <option value="amsterda" data-price="5700" data-miles="41000">
+            Amsterdã
+        </option>
+     
+     3. CLASSES DE VIAGEM:
+        Os multiplicadores atuais são:
+        - Econômica: 1x
+        - Premium: 1.5x
+        - Executiva: 3x
+        - Primeira: 5x
+        
+        Ajuste conforme necessário no HTML
+     
+     4. TAXAS:
+        Atualmente calculadas como 12% do valor
+        Ajuste na linha: const taxes = finalPrice * 0.12;
+     
+     5. ANALYTICS:
+        O código já está integrado com Google Analytics
+        Eventos disparados:
+        - calculator_used (quando usuário calcula)
+        - Categoria: engagement
+        - Label: nome do destino
+        - Value: economia em reais
+     
+     6. ROI DO E-BOOK:
+        A calculadora mostra que investindo R$ 47 no e-book
+        o usuário pode economizar milhares em viagens
+        
+        Isso aumenta MUITO a percepção de valor!
+     
+     ======================================== -->
