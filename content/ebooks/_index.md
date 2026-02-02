@@ -1,5 +1,5 @@
 ---
-title: "E-book: ROTA DAS MILHAS - Voe Mais, Pague Menos"
+title: "E-book: ROTA DAS MILHAS - Pague Menos, Voe Mais"
 <<<<<<< HEAD
 description: "E-book completo com 12 capítulos práticos sobre acúmulo de milhas aéreas. R$ 47,00"
 layout: "ebook"
@@ -13,7 +13,7 @@ description: "E-book completo com 12 capítulos práticos sobre acúmulo de milh
 <!-- Hero -->
 <div class="ebook-hero">
     <h1>ROTA DAS MILHAS</h1>
-    <p class="subtitle">Voe Mais, Pague Menos</p>
+    <p class="subtitle">Pague Menos, Voe Mais</p>
     <p class="description">Guia completo com 12 capítulos para dominar o universo das milhas e viajar muito mais gastando menos</p>
     
     <div class="price-box">
@@ -117,8 +117,7 @@ description: "E-book completo com 12 capítulos práticos sobre acúmulo de milh
 **Além dos 12 capítulos, você recebe:**
 
 - ✅ **Planilha de Controle de Milhas** (Excel)
-- ✅ **Lista de Ferramentas Essenciais**
-- ✅ **Guia de Sweet Spots**
+- ✅ **Amostra Grátis do e-book completo**
 
 ---
 
@@ -228,7 +227,7 @@ Sim! A Hotmart oferece garantia de 7 dias. Se não gostar, é só solicitar reem
 Experimente antes de comprar:
 
 - 📊 [Planilha Gratuita de Milhas](/downloads/planilha-gratis.xlsx)
-- 📖 [Amostra do E-book (3 capítulos)](/downloads/amostra-gratis.pdf)
+- 📖 [Amostra do E-book (15 páginas)](/downloads/amostra-gratis.pdf)
 
 </div>
 

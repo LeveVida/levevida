@@ -1,5 +1,5 @@
 ---
-title: "Leve Vida - Voe Mais, Pague Menos"
+title: "Leve Vida - Voe Alto, Viva Leve!"
 description: "Aprenda estratégias reais de acúmulo de milhas para viajar mais gastando menos. E-book completo com 12 capítulos práticos."
 <<<<<<< HEAD
 layout: "home"
