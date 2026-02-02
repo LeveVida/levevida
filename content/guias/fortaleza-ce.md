@@ -102,22 +102,6 @@ A culinária cearense é um dos grandes highlights da viagem a Fortaleza. Não d
 - **Rapadura:** doce tradicional à base de rapadura com diferentes sabores
 - **Caju e derivados:** sucos, doces e a castanha de caju torrada
 
-### 📸 Guia para Fotos Ultra-realistas em seu Site
-
-Para capturar imagens impressionantes de Fortaleza que transmitam toda a beleza e autenticidade do destino, considere estas abordagens técnicas e criativas:
-
-#### 🎯 Técnicas Avançadas para Imagens de Alta Qualidade
-
-- Utilize imagens responsivas em HTML para garantir que suas fotos se adaptem perfeitamente a diferentes dispositivos e tamanhos de tela. Implemente o elemento `<picture>` com múltiplas versões da mesma imagem para que os navegadores possam escolher a mais adequada para cada contexto de visualização.
-- Aproveite os atributos `srcset` e `sizes` para oferecer várias resoluções de uma mesma imagem, resolvendo o problema de "resolution switching". Isso é particularmente importante para o seu site, pois permite que dispositivos móveis baixem versões menores das imagens, economizando banda e melhorando o desempenho, enquanto desktops com telas de alta resolução recebem versões maiores e mais nítidas.
-- Considere o problema de direção de arte fornecendo diferentes recortes da mesma cena para diferentes tamanhos de tela. Por exemplo, uma vista panorâmica da Praia do Futuro pode funcionar bem em desktop, mas em dispositivos móveis um recorte mais próximo das barracas coloridas contra o mar pode ter mais impacto visual.
-
-#### 🌅 Composição e Momentos Ideais para Fotos
-
-- **Aproveite a hora dourada:** Os pores do sol em Fortaleza são lendários, especialmente na Praia de Iracema e na Ponte dos Ingleses. A luz suave e dourada do final da tarde realça as cores naturais e cria sombras dramáticas, perfeitas para fotos ultra-realistas.
-- **Capture a autenticidade local:** Fotografe os pescadores do Mucuripe em ação, as redes coloridas sendo tecidas, as rendeiras do Mercado Central criando suas peças. Estas imagens transmitem a cultura viva da cidade e criam conexões emocionais com seus visitantes.
-- **Destaque a diversidade de paisagens:** Varie entre grandes panorâmicas (como as dunas de Cumbuco) e detalhes texturizados (a areia fina, as escamas de um peixe no mercado, os detalhes da arquitetura do Theatro José de Alencar) para criar um portfólio visual abrangente e envolvente.
-
 ---
 
 ## ✨ Conclusão
