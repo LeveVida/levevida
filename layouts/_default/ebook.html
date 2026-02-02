@@ -105,6 +105,7 @@
     </div>
 </section>
 
+<!-- Timer de Urgência -->
 <div class="urgency-timer-container">
     <div class="urgency-banner">
         <div class="urgency-icon">⚡</div>
@@ -132,6 +133,128 @@
         </div>
     </div>
 </div>
+
+<!-- Bônus -->
+<section class="bonus-section">
+    <div class="container">
+        <h2>🎁 Bônus Exclusivos</h2>
+        <div class="bonus-grid">
+            <div class="bonus-item">
+                <h3>📊 Planilha de Controle de Milhas</h3>
+                <p>Organize seus pontos e nunca mais perca um benefício</p>
+            </div>
+            <div class="bonus-item">
+                <h3>✈️ Lista de Sweet Spots Atualizada</h3>
+                <p>Rotas com melhor custo-benefício em classe executiva</p>
+            </div>
+            <div class="bonus-item">
+                <h3>💳 Comparador de Cartões</h3>
+                <p>Ferramenta para escolher o cartão ideal para você</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Minha História -->
+<section class="story-section">
+    <div class="container">
+        <h2>📖 Por Que Criei Este E-book</h2>
+        <p>Eu viajava frequentemente entre Cuiabá-MT e Montes Claros-MG para visitar família, mas os custos eram altíssimos.</p>
+        <p>Depois de dominar o universo das milhas, reduzi meus custos em mais de 70% e ainda consegui voar em classe executiva.</p>
+        <p><strong>Agora quero compartilhar esse conhecimento com você!</strong></p>
+        <a href="/sobre" class="btn-link">Conheça minha história →</a>
+    </div>
+</section>
+
+<!-- Quanto Você Pode Economizar -->
+<section class="savings-section">
+    <div class="container">
+        <h2>💰 Quanto Você Pode Economizar</h2>
+        <div class="comparison">
+            <div class="comparison-item">
+                <h3>Sem Estratégia</h3>
+                <p><strong>R$ 3.500</strong></p>
+                <p>Passagem executiva SP-Europa</p>
+            </div>
+            <div class="comparison-arrow">→</div>
+            <div class="comparison-item highlight">
+                <h3>Com Milhas</h3>
+                <p><strong>R$ 800</strong></p>
+                <p>Mesma passagem (só taxas)</p>
+            </div>
+        </div>
+        <p class="savings-total">Economia: R$ 2.700 em uma única viagem!</p>
+        <p class="roi">O e-book se paga na primeira emissão</p>
+    </div>
+</section>
+
+<!-- Para Quem é Este E-book -->
+<section class="for-who-section">
+    <div class="container">
+        <h2>👥 Este E-book é Para Você Se...</h2>
+        <div class="checklist">
+            <div class="check-item">✅ Quer viajar mais sem comprometer o orçamento</div>
+            <div class="check-item">✅ Acumula pontos mas não sabe como usar</div>
+            <div class="check-item">✅ Cansou de ver pontos expirarem</div>
+            <div class="check-item">✅ Quer entender como funciona o mundo das milhas</div>
+            <div class="check-item">✅ Sonha em voar em classe executiva pagando menos</div>
+        </div>
+    </div>
+</section>
+
+<!-- Garantia -->
+<section class="guarantee-section">
+    <div class="container">
+        <h2>🔒 Garantia de 7 Dias</h2>
+        <p>Compre sem risco! Você tem 7 dias para testar o e-book. Se não gostar, devolvemos 100% do seu dinheiro.</p>
+        <p><strong>Sem perguntas, sem burocracia.</strong></p>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-final">
+    <div class="container">
+        <h2>Sua Próxima Viagem Começa Aqui</h2>
+        <p>Investimento único de R$ 47,00 • Acesso imediato • Compra segura</p>
+        <a href="https://hotm.io/rota-das-milhas-ebook" class="btn-buy-large" target="_blank" rel="noopener">
+            🚀 Comprar na Hotmart Agora
+        </a>
+        <p class="guarantee">🔒 Garantia de 7 dias • Pagamento 100% seguro</p>
+    </div>
+</section>
+
+</div>
+
+<script>
+(function() {
+    function updateCountdown() {
+        var now = new Date().getTime();
+        var midnight = new Date();
+        midnight.setHours(24, 0, 0, 0);
+        var distance = midnight.getTime() - now;
+        
+        if (distance < 0) {
+            midnight.setDate(midnight.getDate() + 1);
+            distance = midnight.getTime() - now;
+        }
+        
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        var hoursEl = document.getElementById("hours");
+        var minutesEl = document.getElementById("minutes");
+        var secondsEl = document.getElementById("seconds");
+        
+        if (hoursEl) hoursEl.innerHTML = String(hours).padStart(2, '0');
+        if (minutesEl) minutesEl.innerHTML = String(minutes).padStart(2, '0');
+        if (secondsEl) secondsEl.innerHTML = String(seconds).padStart(2, '0');
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+})();
+</script>
 
 <style>
 /* Timer de Urgência - Estilos */
@@ -280,47 +403,7 @@
     }
 }
 
-/* Timer Sticky (opcional - descomente para fixar no topo ao rolar) */
-/*
-.urgency-timer-container.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-    margin: 0;
-    animation: slideDownSticky 0.4s ease-out;
-}
-
-.urgency-timer-container.sticky .urgency-banner {
-    border-radius: 0;
-    padding: 1rem 2rem;
-}
-
-.urgency-timer-container.sticky .urgency-title {
-    font-size: 1.2rem;
-}
-
-.urgency-timer-container.sticky .countdown-item {
-    padding: 0.5rem 1rem;
-    min-width: 60px;
-}
-
-.urgency-timer-container.sticky .countdown-value {
-    font-size: 1.8rem;
-}
-
-@keyframes slideDownSticky {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-*/
-
-/* Responsivo */
+/* Responsivo - Timer */
 @media (max-width: 768px) {
     .urgency-banner {
         flex-direction: column;
@@ -342,7 +425,7 @@
     }
     
     .countdown-item {
-        padding: 0.8rem 1rem;
+        padding: 0.75rem 1rem;
         min-width: 70px;
     }
     
@@ -350,130 +433,16 @@
         font-size: 2rem;
     }
     
-    .countdown-label {
-        font-size: 0.7rem;
-    }
-    
     .urgency-message {
         font-size: 1rem;
     }
-}
-
-/* Estado Expirado */
-.urgency-timer-container.expired .urgency-banner {
-    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
-}
-
-.urgency-timer-container.expired .countdown-timer {
-    opacity: 0.5;
-}
-</style>
-
-<script>
-// Timer de Urgência - JavaScript
-(function() {
-    'use strict';
     
-    const timerContainer = document.querySelector('.urgency-timer-container');
-    const hoursEl = document.getElementById('hours');
-    const minutesEl = document.getElementById('minutes');
-    const secondsEl = document.getElementById('seconds');
-    const urgencyMessage = document.querySelector('.urgency-message');
+    .urgency-message strong {
+        font-size: 1.1rem;
+    }
+}
 
-<!-- Bônus -->
-<section class="bonus-section">
-    <div class="container">
-        <h2>🎁 Bônus Inclusos</h2>
-        <div class="bonus-grid">
-            <div class="bonus-item">
-                <h3>✅ Planilha de Controle de Milhas</h3>
-                <p>Excel pronto para você controlar todos os seus pontos</p>
-            </div>
-            <div class="bonus-item">
-                <h3>✅ Amostra Grátis do E-book</h3>
-                <p>Conheça parte do e-book completo e verifique a qualidade antes de comprar</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- História Real -->
-<section class="story-section">
-    <div class="container">
-        <h2>💙 Uma História Real</h2>
-        <p>Este e-book nasceu de uma necessidade real: economizar em passagens para visitar a família entre Cuiabá-MT e Montes Claros-MG.</p>
-        <p><strong>Resultado? 14 viagens em 3 anos. Economia de mais de R$ 15.000.</strong></p>
-        <a href="/sobre/" class="btn-link">Leia a história completa →</a>
-    </div>
-</section>
-
-<!-- Economia -->
-<section class="savings-section">
-    <div class="container">
-        <h2>💰 Quanto Você Pode Economizar?</h2>
-        
-        <div class="comparison">
-            <div class="comparison-item">
-                <h3>❌ Sem Milhas</h3>
-                <p>Passagem CGB → CNF: R$ 1.200</p>
-                <p>3 viagens/ano: R$ 3.600</p>
-                <p>2 pessoas: <strong>R$ 7.200/ano</strong></p>
-            </div>
-            
-            <div class="comparison-arrow">→</div>
-            
-            <div class="comparison-item highlight">
-                <h3>✅ Com Milhas</h3>
-                <p>Mesma passagem: 15.000 pontos + R$ 120</p>
-                <p>3 viagens/ano: R$ 360</p>
-                <p>2 pessoas: <strong>R$ 720/ano</strong></p>
-            </div>
-        </div>
-        
-        <p class="savings-total">ECONOMIA: R$ 6.480 POR ANO</p>
-        <p class="roi">O investimento se paga na primeira viagem!</p>
-    </div>
-</section>
-
-<!-- Para Quem É -->
-<section class="for-who-section">
-    <div class="container">
-        <h2>👥 Para Quem é Este E-book?</h2>
-        <div class="checklist">
-            <div class="check-item">✅ Você tem família ou amigos em outras cidades/estados</div>
-            <div class="check-item">✅ Quer viajar mais sem comprometer o orçamento</div>
-            <div class="check-item">✅ Acumula pontos mas não sabe como usar</div>
-            <div class="check-item">✅ Cansou de ver pontos expirarem</div>
-            <div class="check-item">✅ Quer entender como funciona o mundo das milhas</div>
-            <div class="check-item">✅ Sonha em voar em classe executiva pagando menos</div>
-        </div>
-    </div>
-</section>
-
-<!-- Garantia -->
-<section class="guarantee-section">
-    <div class="container">
-        <h2>🔒 Garantia de 7 Dias</h2>
-        <p>Compre sem risco! Você tem 7 dias para testar o e-book. Se não gostar, devolvemos 100% do seu dinheiro.</p>
-        <p><strong>Sem perguntas, sem burocracia.</strong></p>
-    </div>
-</section>
-
-<!-- CTA Final -->
-<section class="cta-final">
-    <div class="container">
-        <h2>Sua Próxima Viagem Começa Aqui</h2>
-        <p>Investimento único de R$ 47,00 • Acesso imediato • Compra segura</p>
-        <a href="https://hotm.io/rota-das-milhas-ebook" class="btn-buy-large" target="_blank" rel="noopener">
-            🚀 Comprar na Hotmart Agora
-        </a>
-        <p class="guarantee">🔒 Garantia de 7 dias • Pagamento 100% seguro</p>
-    </div>
-</section>
-
-</div>
-
-<style>
+/* Estilos Gerais da Página */
 .ebook-page {
     width: 100%;
 }
@@ -764,7 +733,7 @@ section h2 {
     margin: 1rem 0;
 }
 
-/* Responsivo */
+/* Responsivo Geral */
 @media (max-width: 768px) {
     .ebook-hero h1 {
         font-size: 2rem;
