@@ -1,6 +1,666 @@
 {{ define "main" }}
-<!-- Este template usa o conteúdo de content/_index.md -->
-<div class="homepage">
-    {{ .Content }}
-</div>
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1 class="hero-title">Voe Alto, Viva Leve! ✈️</h1>
+            <p class="hero-subtitle">
+                Transforme seus sonhos de viagem em realidade sem pesar no bolso. 
+                Descubra estratégias de milhas, dicas de economia e roteiros incríveis!
+            </p>
+            <div class="hero-cta-group">
+                <a href="/ebooks/" class="hero-cta-primary">
+                    📚 Comprar E-book - R$ 47
+                </a>
+                <a href="/artigos/" class="hero-cta-secondary">
+                    📖 Ver Artigos
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Últimas Atualizações / Artigos Recentes -->
+<section class="articles-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">📰 Últimas Atualizações</h2>
+            <p class="section-subtitle">Fique por dentro das novidades mais recentes</p>
+        </div>
+        
+        <div class="articles-grid">
+            {{ $artigos := where .Site.RegularPages "Section" "in" (slice "artigos" "guias") }}
+            {{ $artigos = where $artigos "Params.draft" "!=" true }}
+            {{ $artigos = $artigos | first 6 }}
+            
+            {{ range $artigos }}
+            <article class="article-card">
+                <div class="article-image">
+                    <a href="{{ .RelPermalink }}">
+                        {{ if .Params.image }}
+                            <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'article-placeholder\'><span class=\'placeholder-icon\'>✈️</span></div>'">
+                        {{ else }}
+                            <div class="article-placeholder">
+                                <span class="placeholder-icon">✈️</span>
+                            </div>
+                        {{ end }}
+                    </a>
+                    {{ if .Params.categoria }}
+                    <span class="article-category">{{ .Params.categoria }}</span>
+                    {{ end }}
+                </div>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <time datetime="{{ .Date.Format "2006-01-02" }}">
+                            📅 {{ .Date.Format "02/01/2006" }}
+                        </time>
+                        {{ if .Params.readTime }}
+                        <span class="reading-time">⏱️ {{ .Params.readTime }}</span>
+                        {{ else }}
+                        <span class="reading-time">⏱️ 5 min</span>
+                        {{ end }}
+                    </div>
+                    
+                    <h3 class="article-title">
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    </h3>
+                    
+                    <p class="article-excerpt">
+                        {{ if .Description }}
+                            {{ .Description | truncate 150 }}
+                        {{ else if .Summary }}
+                            {{ .Summary | truncate 150 }}
+                        {{ else }}
+                            {{ .Content | plainify | truncate 150 }}
+                        {{ end }}
+                    </p>
+                    
+                    <a href="{{ .RelPermalink }}" class="article-link">
+                        Leia mais <span class="arrow">→</span>
+                    </a>
+                </div>
+            </article>
+            {{ end }}
+        </div>
+        
+        <div class="section-cta">
+            <a href="/artigos/" class="btn-view-all">
+                Ver Todos os Artigos →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Destaques -->
+<section class="highlights-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">⭐ Destaques</h2>
+            <p class="section-subtitle">Conteúdos imperdíveis para sua próxima viagem</p>
+        </div>
+        
+        <div class="highlights-grid">
+            <!-- Card 1 -->
+            <div class="highlight-card">
+                <div class="highlight-icon">💡</div>
+                <h3 class="highlight-title">Acúmulo de Milhas</h3>
+                <p class="highlight-description">
+                    Aprenda estratégias eficientes para acumular milhas e realizar 
+                    as viagens dos seus sonhos gastando muito menos do que imagina.
+                </p>
+                <a href="/artigos/" class="highlight-link">
+                    Explorar <span class="arrow">→</span>
+                </a>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="highlight-card">
+                <div class="highlight-icon">🗺️</div>
+                <h3 class="highlight-title">Roteiros Exclusivos</h3>
+                <p class="highlight-description">
+                    Roteiros cuidadosamente planejados para você aproveitar ao máximo 
+                    cada destino, economizando tempo e dinheiro.
+                </p>
+                <a href="/guias/" class="highlight-link">
+                    Ver roteiros <span class="arrow">→</span>
+                </a>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="highlight-card">
+                <div class="highlight-icon">🏷️</div>
+                <h3 class="highlight-title">Promoções</h3>
+                <p class="highlight-description">
+                    Fique por dentro das melhores promoções de passagens, hospedagens 
+                    e pacotes de viagem. Não perca!
+                </p>
+                <a href="/artigos/" class="highlight-link">
+                    Ver promoções <span class="arrow">→</span>
+                </a>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="highlight-card">
+                <div class="highlight-icon">📚</div>
+                <h3 class="highlight-title">E-book ROTA DAS MILHAS</h3>
+                <p class="highlight-description">
+                    Guia completo com 12 capítulos sobre milhas. Estratégias reais 
+                    para você viajar mais gastando menos. Acesso imediato!
+                </p>
+                <a href="/ebooks/" class="highlight-link">
+                    Comprar por R$ 47 <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+    <div class="container">
+        <div class="newsletter-box">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">📬</div>
+                <h3 class="newsletter-title">Receba Nossas Novidades</h3>
+                <p class="newsletter-description">
+                    Cadastre-se e receba dicas exclusivas, promoções e novidades direto no seu e-mail!
+                </p>
+            </div>
+            
+            <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="newsletter-form">
+                <input 
+                    type="email" 
+                    name="email"
+                    class="newsletter-input" 
+                    placeholder="Digite seu melhor e-mail"
+                    required
+                    aria-label="Email para newsletter"
+                >
+                <button type="submit" class="newsletter-btn">
+                    Inscrever-se ✉️
+                </button>
+            </form>
+            
+            <p class="newsletter-privacy">
+                🔒 Seus dados estão seguros. Nunca enviaremos spam.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.hero-container {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: white;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-cta-primary,
+.hero-cta-secondary {
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.hero-cta-primary {
+    background: white;
+    color: #667eea;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.hero-cta-secondary {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    backdrop-filter: blur(10px);
+}
+
+.hero-cta-secondary:hover {
+    background: white;
+    color: #667eea;
+    transform: translateY(-3px);
+}
+
+/* Sections */
+.articles-section,
+.highlights-section,
+.newsletter-section {
+    padding: 5rem 0;
+}
+
+.highlights-section {
+    background: #f8f9fa;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+}
+
+/* Articles Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.article-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.article-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.article-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.article-card:hover .article-image img {
+    transform: scale(1.05);
+}
+
+.article-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.placeholder-icon {
+    font-size: 4rem;
+    opacity: 0.9;
+}
+
+.article-category {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    color: #667eea;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.article-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.article-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.article-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+}
+
+.article-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.article-title a:hover {
+    color: #667eea;
+}
+
+.article-excerpt {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex: 1;
+}
+
+.article-link {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.article-link:hover {
+    gap: 0.8rem;
+}
+
+.article-link .arrow {
+    transition: transform 0.3s;
+}
+
+.article-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Section CTA */
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.btn-view-all {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-view-all:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Highlights Grid */
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-title {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.highlight-description {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.highlight-link {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+}
+
+.highlight-link:hover {
+    gap: 0.8rem;
+}
+
+.highlight-link .arrow {
+    transition: transform 0.3s;
+}
+
+.highlight-link:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* Newsletter */
+.newsletter-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.newsletter-box {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.newsletter-description {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.newsletter-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+.newsletter-privacy {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-cta-group {
+        flex-direction: column;
+    }
+    
+    .hero-cta-primary,
+    .hero-cta-secondary {
+        width: 100%;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .newsletter-box {
+        padding: 2rem 1.5rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 3rem 1rem;
+    }
+    
+    .articles-section,
+    .highlights-section,
+    .newsletter-section {
+        padding: 3rem 0;
+    }
+    
+    .article-image,
+    .article-placeholder {
+        height: 200px;
+    }
+}
+</style>
+
 {{ end }}
