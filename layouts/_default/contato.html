@@ -1,0 +1,644 @@
+{{ define "main" }}
+<div class="contact-page">
+
+<!-- Hero Section -->
+<section class="contact-hero">
+    <div class="container">
+        <h1>Entre em Contato</h1>
+        <p class="hero-subtitle">
+            Tem dúvidas sobre milhas aéreas? Quer saber mais sobre o e-book? 
+            Ou apenas compartilhar sua história de viagem?
+        </p>
+        <p class="hero-cta">Estamos aqui para ajudar! 💙</p>
+    </div>
+</section>
+
+<!-- Contact Methods -->
+<section class="contact-methods">
+    <div class="container">
+        <div class="methods-grid">
+            
+            <div class="method-card email">
+                <div class="method-icon">📧</div>
+                <h3>Email</h3>
+                <p class="method-value">equipelevevida@gmail.com</p>
+                <p class="method-detail">Respondemos em até 24 horas (dias úteis)</p>
+                <a href="mailto:equipelevevida@gmail.com" class="btn-method">Enviar Email</a>
+            </div>
+            
+            <div class="method-card whatsapp">
+                <div class="method-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <p class="method-value">(65) 99331-7054</p>
+                <p class="method-detail">Tire dúvidas rápidas ou agende conversa</p>
+                <a href="https://wa.me/5565993317054?text=Olá!%20Vim%20do%20site%20Leve%20Vida" target="_blank" class="btn-method">Chamar no WhatsApp</a>
+            </div>
+            
+            <div class="method-card social">
+                <div class="method-icon">📱</div>
+                <h3>Redes Sociais</h3>
+                <p class="method-detail">Nos siga e mande mensagem</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/levevida8" target="_blank" class="social-btn">
+                        📸 Instagram
+                    </a>
+                    <a href="https://youtube.com/@levevida8" target="_blank" class="social-btn">
+                        🎥 YouTube
+                    </a>
+                    <a href="https://tiktok.com/@levevida88" target="_blank" class="social-btn">
+                        🎬 TikTok
+                    </a>
+                    <a href="https://kwai.com/@levevida88" target="_blank" class="social-btn">
+                        📹 Kwai
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form -->
+<section class="contact-form-section">
+    <div class="container">
+        <h2>Envie Sua Mensagem</h2>
+        <p class="section-subtitle">Preencha o formulário abaixo e entraremos em contato:</p>
+        
+        <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Nome *</label>
+                    <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Assunto *</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Selecione o assunto...</option>
+                    <option value="duvida-ebook">Dúvida sobre o E-book</option>
+                    <option value="duvida-milhas">Dúvida sobre Milhas</option>
+                    <option value="suporte">Suporte Técnico</option>
+                    <option value="sugestao">Sugestão</option>
+                    <option value="depoimento">Depoimento</option>
+                    <option value="parceria">Proposta de Parceria</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Mensagem *</label>
+                <textarea id="message" name="message" rows="6" required placeholder="Escreva sua mensagem aqui..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                <span class="btn-icon">📨</span>
+                <span>Enviar Mensagem</span>
+            </button>
+            
+            <p class="form-note">* Campos obrigatórios</p>
+        </form>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="contact-faq">
+    <div class="container">
+        <h2>Perguntas Frequentes</h2>
+        <p class="section-subtitle">Antes de entrar em contato, veja se sua dúvida já foi respondida:</p>
+        
+        <div class="faq-grid">
+            
+            <div class="faq-item">
+                <h4>📚 Como recebo o e-book após a compra?</h4>
+                <p>Você recebe imediatamente por email após a confirmação do pagamento na Hotmart. Verifique também a caixa de spam.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>💳 Posso parcelar o e-book?</h4>
+                <p>Sim! A Hotmart aceita parcelamento no cartão de crédito em até 12x.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>✅ Tem garantia?</h4>
+                <p>Sim! 7 dias de garantia incondicional. Se não gostar, devolvemos 100% do valor sem burocracia.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>💳 Preciso ter cartão de crédito?</h4>
+                <p>Não é obrigatório para aprender milhas. O e-book ensina várias formas de acúmulo, com ou sem cartão.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>⏱️ Quanto tempo para juntar milhas?</h4>
+                <p>Depende do seu perfil de gastos, mas geralmente 2-6 meses para uma passagem nacional.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>✈️ Funciona para qualquer destino?</h4>
+                <p>Sim! As estratégias funcionam para voos nacionais e internacionais, em qualquer companhia aérea.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>📱 Em que formato é o e-book?</h4>
+                <p>PDF, que pode ser lido em qualquer dispositivo: computador, tablet, celular ou e-reader.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>🔄 Posso reembolsar se não gostar?</h4>
+                <p>Sim! Dentro de 7 dias você pode solicitar reembolso total pela própria plataforma Hotmart.</p>
+            </div>
+            
+        </div>
+        
+        <div class="faq-cta">
+            <p>Não encontrou sua resposta?</p>
+            <a href="#contact-form" class="btn-faq">Entre em Contato</a>
+        </div>
+    </div>
+</section>
+
+<!-- Info Section -->
+<section class="contact-info">
+    <div class="container">
+        <div class="info-grid">
+            
+            <div class="info-card">
+                <h3>📍 Localização</h3>
+                <p>Cuiabá - MT, Brasil</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>⏰ Horário de Atendimento</h3>
+                <p><strong>Segunda a Sexta:</strong> 9h às 18h</p>
+                <p><strong>Sábado:</strong> 9h às 13h</p>
+                <p><strong>Domingo:</strong> Fechado</p>
+                <p class="info-note">*Horário de Brasília</p>
+            </div>
+            
+            <div class="info-card">
+                <h3>📧 Contatos</h3>
+                <p><strong>Email:</strong> equipelevevida@gmail.com</p>
+                <p><strong>WhatsApp:</strong> (65) 99331-7054</p>
+            </div>
+            
+        </div>
+        
+        <div class="info-note-box">
+            <p>
+                <strong>Respondemos pessoalmente a cada mensagem!</strong><br>
+                Fora do horário comercial, o tempo de resposta pode ser um pouco maior.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final -->
+<section class="contact-cta-final">
+    <div class="container">
+        <h2>Ainda Não Conhece Nosso E-book?</h2>
+        <p>Descubra como viajar mais gastando menos com nossas estratégias testadas</p>
+        <a href="/ebooks/" class="btn-cta-ebook">📚 Ver Detalhes do E-book</a>
+    </div>
+</section>
+
+</div>
+
+<style>
+/* Contact Page Styles */
+.contact-page {
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Hero */
+.contact-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.contact-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 1rem auto;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.hero-cta {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Contact Methods */
+.contact-methods {
+    padding: 5rem 0;
+    background: white;
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.method-card {
+    background: #f8f9fa;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.3s;
+    border: 3px solid transparent;
+}
+
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.method-card.email:hover {
+    border-color: #667eea;
+}
+
+.method-card.whatsapp:hover {
+    border-color: #25D366;
+}
+
+.method-card.social:hover {
+    border-color: #E1306C;
+}
+
+.method-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.method-card h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.method-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.method-detail {
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.btn-method {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-method:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+.social-links {
+    display: grid;
+    gap: 1rem;
+}
+
+.social-btn {
+    display: block;
+    background: white;
+    color: #667eea;
+    padding: 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    border: 2px solid #667eea;
+}
+
+.social-btn:hover {
+    background: #667eea;
+    color: white;
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 3rem;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1.05rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.btn-submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 1.3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+}
+
+.form-note {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+/* FAQ */
+.contact-faq {
+    padding: 5rem 0;
+    background: white;
+}
+
+.contact-faq h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.faq-item {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
+
+.faq-item:hover {
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+}
+
+.faq-item h4 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.faq-item p {
+    color: #7f8c8d;
+    line-height: 1.6;
+}
+
+.faq-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.faq-cta p {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.btn-faq {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.btn-faq:hover {
+    background: #764ba2;
+    transform: translateY(-3px);
+}
+
+/* Info Section */
+.contact-info {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.info-card p {
+    color: #7f8c8d;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.info-card strong {
+    color: #2c3e50;
+}
+
+.info-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+.info-note-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border-left: 5px solid #667eea;
+}
+
+.info-note-box p {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* CTA Final */
+.contact-cta-final {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.contact-cta-final h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.contact-cta-final p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.btn-cta-ebook {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 1.3rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.btn-cta-ebook:hover {
+    background: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .methods-grid,
+    .faq-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+        padding: 2rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+{{ end }}
