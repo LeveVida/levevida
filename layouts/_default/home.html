@@ -1,94 +1,505 @@
 {{ define "main" }}
-<div class="homepage">
+<div class="homepage-redesign">
 
-<!-- Hero Section -->
-<section class="hero">
+<!-- Hero Section - Máximo Impacto -->
+<section class="hero-modern">
+    <div class="hero-bg-animated"></div>
     <div class="container">
-        <div class="hero-content">
-            <h1>Voe Alto, Viva Leve! ✈️</h1>
-            <p class="hero-subtitle">
-                Aprenda a viajar mais gastando menos com estratégias reais de acúmulo de milhas aéreas
+        <div class="hero-badge">
+            <span class="badge-icon">✨</span>
+            <span>Mais de R$ 15.000 economizados em 3 anos</span>
+        </div>
+        
+        <h1 class="hero-h1">
+            Transforme Seus Gastos<br>
+            em <span class="gradient-text">Viagens Inesquecíveis</span>
+        </h1>
+        
+        <p class="hero-lead">
+            Descubra o método comprovado para <strong>acumular milhas aéreas</strong> e viajar 
+            <strong>5x mais</strong> gastando até <strong>90% menos</strong> em passagens
+        </p>
+        
+        <div class="hero-cta-group">
+            <a href="/ebooks/" class="btn-primary-hero">
+                <span class="btn-icon">🚀</span>
+                <span>Começar Agora - R$ 47</span>
+            </a>
+            <a href="#prova-social" class="btn-secondary-hero">
+                <span class="btn-icon">📊</span>
+                <span>Ver Resultados Reais</span>
+            </a>
+        </div>
+        
+        <div class="hero-trust-bar">
+            <div class="trust-item">
+                <span class="trust-icon">🔒</span>
+                <span>Compra 100% Segura</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">⚡</span>
+                <span>Acesso Imediato</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">✅</span>
+                <span>Garantia de 7 Dias</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Números de Impacto - Prova Social Imediata -->
+<section id="prova-social" class="impact-numbers">
+    <div class="container">
+        <div class="numbers-grid">
+            <div class="number-card">
+                <div class="number-value">14</div>
+                <div class="number-label">Viagens Realizadas</div>
+                <div class="number-detail">em apenas 3 anos</div>
+            </div>
+            <div class="number-card highlight">
+                <div class="number-value">R$ 15mil+</div>
+                <div class="number-label">Economizados</div>
+                <div class="number-detail">em passagens aéreas</div>
+            </div>
+            <div class="number-card">
+                <div class="number-value">90%</div>
+                <div class="number-label">Menos Gastos</div>
+                <div class="number-detail">por viagem</div>
+            </div>
+            <div class="number-card">
+                <div class="number-value">100%</div>
+                <div class="number-label">Testado</div>
+                <div class="number-detail">resultados reais</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Identificação do Problema -->
+<section class="problems-section">
+    <div class="container">
+        <h2 class="section-title">Você Também Enfrenta Isso?</h2>
+        <p class="section-subtitle">Se você se identifica com pelo menos um destes problemas, este site é para você:</p>
+        
+        <div class="problems-carousel">
+            <div class="problem-box">
+                <div class="problem-emoji">💸</div>
+                <h3>Passagens Muito Caras</h3>
+                <p>Quer viajar para ver a família ou fazer aquela viagem dos sonhos, mas as passagens custam R$ 800, R$ 1.200, R$ 2.000 ou mais...</p>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-emoji">😞</div>
+                <h3>Pontos Expirando</h3>
+                <p>Acumula milhares de pontos no cartão de crédito todo mês, mas não sabe como usar. Vê seus pontos expirarem sem aproveitar nada.</p>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-emoji">🤔</div>
+                <h3>Informação Confusa</h3>
+                <p>Já tentou aprender sobre milhas aéreas, mas a informação é técnica demais, confusa, desatualizada ou espalhada em vários lugares.</p>
+            </div>
+            
+            <div class="problem-box">
+                <div class="problem-emoji">❌</div>
+                <h3>Sonhos Adiados</h3>
+                <p>Já deixou de viajar, de visitar quem ama ou de realizar sonhos porque "está muito caro" ou "não é o momento certo".</p>
+            </div>
+        </div>
+        
+        <div class="solution-cta">
+            <h3>✨ E Se Você Pudesse Resolver Tudo Isso?</h3>
+            <p>Com as estratégias certas, você pode. E não é complicado.</p>
+            <a href="/ebooks/" class="btn-solution">Descobrir Como →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Como Funciona - Visual e Simples -->
+<section class="how-works-visual">
+    <div class="container">
+        <h2 class="section-title">Como Funciona em 3 Passos Simples</h2>
+        <p class="section-subtitle">O método que usamos para viajar 5x mais gastando 90% menos:</p>
+        
+        <div class="steps-visual">
+            <div class="step-visual">
+                <div class="step-circle">
+                    <span class="step-num">1</span>
+                </div>
+                <div class="step-icon-big">💳</div>
+                <h3>Acumule Pontos</h3>
+                <p>Use seus gastos do dia a dia (contas, supermercado, combustível) para acumular pontos automaticamente.</p>
+                <div class="step-example">
+                    <strong>Exemplo:</strong> R$ 3.000/mês = 72.000 pontos/ano
+                </div>
+            </div>
+            
+            <div class="step-arrow">→</div>
+            
+            <div class="step-visual">
+                <div class="step-circle">
+                    <span class="step-num">2</span>
+                </div>
+                <div class="step-icon-big">🔄</div>
+                <h3>Transfira para Milhas</h3>
+                <p>Converta seus pontos para programas de milhas nos momentos certos (com bônus de até 100%).</p>
+                <div class="step-example">
+                    <strong>Exemplo:</strong> 72.000 pontos → 144.000 milhas (com bônus)
+                </div>
+            </div>
+            
+            <div class="step-arrow">→</div>
+            
+            <div class="step-visual">
+                <div class="step-circle">
+                    <span class="step-num">3</span>
+                </div>
+                <div class="step-icon-big">✈️</div>
+                <h3>Emita Passagens</h3>
+                <p>Use as milhas para emitir passagens pagando apenas taxas (R$ 80-200), economizando milhares.</p>
+                <div class="step-example">
+                    <strong>Economia:</strong> Passagem de R$ 1.200 por R$ 120
+                </div>
+            </div>
+        </div>
+        
+        <div class="calculation-visual">
+            <div class="calc-box before-calc">
+                <h4>❌ Sem Milhas</h4>
+                <div class="calc-value">R$ 7.200/ano</div>
+                <div class="calc-detail">3 viagens × 2 pessoas<br>× R$ 1.200 cada</div>
+            </div>
+            
+            <div class="calc-vs">VS</div>
+            
+            <div class="calc-box after-calc">
+                <h4>✅ Com Milhas</h4>
+                <div class="calc-value green">R$ 720/ano</div>
+                <div class="calc-detail">3 viagens × 2 pessoas<br>× R$ 120 em taxas</div>
+            </div>
+        </div>
+        
+        <div class="economy-highlight">
+            <span class="economy-label">Sua Economia Potencial:</span>
+            <span class="economy-value">R$ 6.480 por ano</span>
+            <span class="economy-detail">O investimento no e-book (R$ 47) se paga na primeira viagem!</span>
+        </div>
+    </div>
+</section>
+
+<!-- História Real - Conexão Emocional -->
+<section class="story-section">
+    <div class="container">
+        <div class="story-layout">
+            <div class="story-image-side">
+                <div class="story-img-placeholder">
+                    <div class="img-content">
+                        <span class="img-emoji">💙</span>
+                        <p class="img-text">Emerson & Cleide</p>
+                        <p class="img-subtext">Cuiabá ↔ Montes Claros</p>
+                        <p class="img-distance">1.700km</p>
+                    </div>
+                </div>
+                <div class="story-stats-mini">
+                    <div class="stat-mini">
+                        <strong>14</strong>
+                        <span>viagens</span>
+                    </div>
+                    <div class="stat-mini">
+                        <strong>3</strong>
+                        <span>anos</span>
+                    </div>
+                    <div class="stat-mini">
+                        <strong>R$ 15k</strong>
+                        <span>economizados</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-content-side">
+                <span class="content-label">Nossa História Real</span>
+                <h2>Como a Distância nos Ensinou a Viajar Mais</h2>
+                
+                <div class="story-text">
+                    <p>
+                        Em Cuiabá-MT, conheci <strong>Cleide Lúcia</strong>, hoje minha esposa. 
+                        Ela havia deixado Montes Claros-MG para buscar seu sonho profissional.
+                    </p>
+                    
+                    <p>
+                        Apaixonados, enfrentávamos um desafio que muitos casais conhecem: 
+                        <strong>a distância da família</strong>.
+                    </p>
+                    
+                    <div class="quote-box">
+                        <p>
+                            "Cada visita custava R$ 1.200 por pessoa. 3 vezes ao ano = R$ 7.200 
+                            que simplesmente não tínhamos."
+                        </p>
+                    </div>
+                    
+                    <p>
+                        Foi nesse <strong>aperto de bolso e coração</strong> que decidimos 
+                        estudar a fundo o universo das milhas aéreas.
+                    </p>
+                    
+                    <div class="results-box">
+                        <h4>Resultado em 2 anos:</h4>
+                        <ul>
+                            <li>✅ 06 viagens para ver a família</li>
+                            <li>✅ Visitamos Gramado e Canela, Punta Cana e diversos destinos</li>
+                            <li>✅ Mais de R$ 15.000 economizados</li>
+                            <li>✅ Nunca mais deixamos de ver quem amamos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <a href="/sobre/" class="btn-story">Ler História Completa →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Oferta Principal - E-book -->
+<section class="ebook-showcase">
+    <div class="container">
+        <div class="ebook-layout">
+            <div class="ebook-visual">
+                <div class="ebook-cover">
+                    <div class="cover-content">
+                        <span class="cover-icon">📚</span>
+                        <h3>ROTA DAS<br>MILHAS</h3>
+                        <p>Pague Menos<br>Voe Mais</p>
+                    </div>
+                </div>
+                <div class="ebook-badge-price">
+                    <span class="badge-label">Apenas</span>
+                    <span class="badge-amount">R$ 47</span>
+                </div>
+            </div>
+            
+            <div class="ebook-details">
+                <span class="details-label">E-book Completo</span>
+                <h2>ROTA DAS MILHAS: Pague Menos, Voe Mais</h2>
+                <p class="details-intro">
+                    Todo o conhecimento que acumulamos em 3 anos, documentado em 
+                    <strong>12 capítulos práticos</strong> do básico ao avançado.
+                </p>
+                
+                <div class="ebook-features">
+                    <div class="feature-item">
+                        <span class="feature-check">✓</span>
+                        <div class="feature-text">
+                            <strong>12 Capítulos Completos</strong>
+                            <p>Do universo das milhas até sweet spots de classe executiva</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-check">✓</span>
+                        <div class="feature-text">
+                            <strong>Planilha de Controle Grátis</strong>
+                            <p>Excel pronta para organizar todos seus pontos</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-check">✓</span>
+                        <div class="feature-text">
+                            <strong>Estratégias Testadas</strong>
+                            <p>Apenas o que realmente funciona, sem enrolação</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-check">✓</span>
+                        <div class="feature-text">
+                            <strong>Garantia de 7 Dias</strong>
+                            <p>Não gostou? Devolvemos 100% do valor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ebook-cta">
+                    <a href="/ebooks/" class="btn-ebook-main">
+                        <span>📚 Ver Detalhes Completos do E-book</span>
+                    </a>
+                    <p class="ebook-guarantee">🔒 Compra 100% segura • Acesso imediato • Garantia de 7 dias</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Antes vs Depois - Transformação -->
+<section class="transformation-section">
+    <div class="container">
+        <h2 class="section-title">A Transformação É Real</h2>
+        <p class="section-subtitle">Compare como é viajar sem e com as estratégias de milhas:</p>
+        
+        <div class="transform-grid">
+            <div class="transform-card before">
+                <div class="transform-header">
+                    <span class="transform-emoji">😰</span>
+                    <h3>Antes (Sem Milhas)</h3>
+                </div>
+                <ul class="transform-list">
+                    <li><span class="icon-no">❌</span> Passagens de R$ 800 a R$ 2.000</li>
+                    <li><span class="icon-no">❌</span> Viaja 1-2x por ano no máximo</li>
+                    <li><span class="icon-no">❌</span> Sempre caçando "promoções"</li>
+                    <li><span class="icon-no">❌</span> Pontos expirando todo ano</li>
+                    <li><span class="icon-no">❌</span> "Está muito caro" = não viaja</li>
+                    <li><span class="icon-no">❌</span> Inveja de quem viaja muito</li>
+                </ul>
+                <div class="transform-cost bad">
+                    <span>Gasto anual:</span>
+                    <strong>R$ 4.000 - R$ 8.000</strong>
+                </div>
+            </div>
+            
+            <div class="transform-arrow-big">
+                <span>→</span>
+            </div>
+            
+            <div class="transform-card after">
+                <div class="transform-header">
+                    <span class="transform-emoji">😊</span>
+                    <h3>Depois (Com Milhas)</h3>
+                </div>
+                <ul class="transform-list">
+                    <li><span class="icon-yes">✅</span> Passagens por R$ 80-200 (só taxas)</li>
+                    <li><span class="icon-yes">✅</span> Viaja 5-10x por ano ou mais</li>
+                    <li><span class="icon-yes">✅</span> Planeja viagens antecipadamente</li>
+                    <li><span class="icon-yes">✅</span> Usa TODOS os pontos estrategicamente</li>
+                    <li><span class="icon-yes">✅</span> Viaja quando e onde quiser</li>
+                    <li><span class="icon-yes">✅</span> Ensina amigos e família também</li>
+                </ul>
+                <div class="transform-cost good">
+                    <span>Gasto anual:</span>
+                    <strong>R$ 500 - R$ 1.500</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Rápido -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        
+        <div class="faq-list">
+            <div class="faq-card">
+                <h4>❓ Preciso ter cartão de crédito?</h4>
+                <p>Não é obrigatório, mas ajuda muito. O e-book ensina várias formas de acúmulo, inclusive sem cartão.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h4>❓ Quanto tempo para juntar milhas?</h4>
+                <p>Depende do seu perfil, mas geralmente 2-6 meses para uma passagem nacional.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h4>❓ É complicado?</h4>
+                <p>Não! O e-book começa do zero absoluto. Se você sabe usar WhatsApp, consegue aprender milhas.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h4>❓ Funciona para qualquer destino?</h4>
+                <p>Sim! Nacional e internacional. As estratégias funcionam para qualquer companhia aérea.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h4>❓ E se eu não gostar?</h4>
+                <p>7 dias de garantia total. Não gostou? Devolvemos 100% sem burocracia.</p>
+            </div>
+            
+            <div class="faq-card">
+                <h4>❓ Quando recebo o e-book?</h4>
+                <p>Imediatamente! Após a compra você recebe o link por email para download do PDF.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Final Forte -->
+<section class="final-cta-section">
+    <div class="container">
+        <div class="final-cta-box">
+            <h2>Pronto Para Transformar Suas Viagens?</h2>
+            <p class="final-cta-text">
+                Mais de <strong>40 milhões de brasileiros</strong> acumulam pontos todo mês.<br>
+                Mas menos de <strong>5%</strong> sabem usar estrategicamente para viajar.
             </p>
-            <div class="hero-buttons">
-                <a href="/ebooks/" class="btn btn-primary">📚 Conhecer E-book</a>
-                <a href="/sobre/" class="btn btn-secondary">💙 Nossa História</a>
+            <p class="final-cta-question">
+                Você vai continuar desperdiçando seus pontos?<br>
+                Ou vai transformá-los em viagens inesquecíveis?
+            </p>
+            
+            <div class="final-cta-buttons">
+                <a href="/ebooks/" class="btn-final-primary">
+                    🚀 Sim, Quero Viajar Mais por R$ 47
+                </a>
+                <a href="/downloads/planilha-gratis.xlsx" class="btn-final-secondary">
+                    📊 Ou Baixar Material Grátis
+                </a>
+            </div>
+            
+            <div class="final-trust-badges">
+                <span class="trust-badge">🔒 Pagamento 100% Seguro</span>
+                <span class="trust-badge">⚡ Acesso Imediato</span>
+                <span class="trust-badge">✅ Garantia de 7 Dias</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Sobre Section -->
-<section class="about-section">
+<!-- Conteúdo Gratuito -->
+<section class="free-section">
     <div class="container">
-        <h2>💙 Nossa História</h2>
-        <p>
-            Este projeto nasceu de uma necessidade real: economizar em passagens aéreas para visitar a família. 
-            Entre Cuiabá-MT e Montes Claros-MG, transformamos o desafio da distância em aprendizado sobre milhas.
-        </p>
-        <p>
-            <strong>Resultado:</strong> 14 viagens em 3 anos, mais de R$ 15.000 economizados.
-        </p>
-        <a href="/sobre/" class="btn btn-link">Ler história completa →</a>
-    </div>
-</section>
-
-<!-- E-book Section -->
-<section class="ebook-section">
-    <div class="container">
-        <h2>📚 E-book: ROTA DAS MILHAS</h2>
-        <p class="subtitle">Pague Menos, Voe Mais</p>
+        <h2 class="section-title">Experimente Gratuitamente</h2>
+        <p class="section-subtitle">Comece agora com nossos materiais gratuitos:</p>
         
-        <div class="ebook-highlights">
-            <div class="highlight-item">
-                <h3>12 Capítulos</h3>
-                <p>Do básico ao avançado</p>
+        <div class="free-cards">
+            <div class="free-item">
+                <div class="free-icon">📊</div>
+                <h3>Planilha de Milhas</h3>
+                <p>Controle de pontos, saldo e validade. Excel pronta para usar.</p>
+                <a href="/downloads/planilha-gratis.xlsx" class="btn-free-download">Baixar Grátis</a>
             </div>
-            <div class="highlight-item">
-                <h3>R$ 47,00</h3>
-                <p>Investimento único</p>
+            
+            <div class="free-item featured">
+                <div class="featured-badge">Popular</div>
+                <div class="free-icon">📖</div>
+                <h3>Amostra do E-book</h3>
+                <p>Leia 3 capítulos completos gratuitamente.</p>
+                <a href="/downloads/amostra-gratis.pdf" class="btn-free-download">Baixar Amostra</a>
             </div>
-            <div class="highlight-item">
-                <h3>Planilha Grátis</h3>
-                <p>Controle de milhas</p>
+            
+            <div class="free-item">
+                <div class="free-icon">📝</div>
+                <h3>Blog com Dicas</h3>
+                <p>Artigos, guias e estratégias atualizados.</p>
+                <a href="/artigos/" class="btn-free-download">Ver Artigos</a>
             </div>
         </div>
-        
-        <a href="/ebooks/" class="btn btn-accent">Ver Detalhes do E-book →</a>
-    </div>
-</section>
-
-<!-- Guias Section -->
-<section class="guides-section">
-    <div class="container">
-        <h2>🗺️ Guias de Viagem</h2>
-        <p>Dicas práticas para seus destinos</p>
-        <a href="/guias/" class="btn btn-link">Ver Todos os Guias →</a>
-    </div>
-</section>
-
-<!-- Artigos Section -->
-<section class="articles-section">
-    <div class="container">
-        <h2>📝 Artigos</h2>
-        <p>Aprenda estratégias de acúmulo de milhas</p>
-        <a href="/artigos/" class="btn btn-link">Ver Todos os Artigos →</a>
-    </div>
-</section>
-
-<!-- CTA Final -->
-<section class="cta-section">
-    <div class="container">
-        <h2>Comece Sua Jornada de Economia Hoje! 🚀</h2>
-        <p>Transforme seus gastos em viagens inesquecíveis</p>
-        <a href="/ebooks/" class="btn btn-primary btn-large">Conhecer o E-book</a>
     </div>
 </section>
 
 </div>
 
 <style>
-.homepage {
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homepage-redesign {
     width: 100%;
+    overflow-x: hidden;
 }
 
 .container {
@@ -97,182 +508,1173 @@
     padding: 0 2rem;
 }
 
-/* Hero Section */
-.hero {
+/* Hero Modern - Máximo Impacto */
+.hero-modern {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 5rem 0;
     text-align: center;
+    padding: 6rem 0 4rem 0;
 }
 
-.hero h1 {
+.hero-bg-animated {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+.hero-modern .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: slideDown 0.8s ease-out;
+}
+
+.badge-icon {
+    font-size: 1.2rem;
+}
+
+.hero-h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #FFD700, #FFA500, #FF6B6B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.hero-lead {
+    font-size: 1.5rem;
+    max-width: 850px;
+    margin: 0 auto 3rem auto;
+    opacity: 0.95;
+    line-height: 1.7;
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+.btn-primary-hero,
+.btn-secondary-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.3rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-hero {
+    background: #ff4757;
+    color: white;
+    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+}
+
+.btn-primary-hero:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(255, 71, 87, 0.6);
+}
+
+.btn-secondary-hero {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+    border: 2px solid white;
+}
+
+.btn-secondary-hero:hover {
+    background: white;
+    color: #667eea;
+}
+
+.btn-icon {
+    font-size: 1.3rem;
+}
+
+.hero-trust-bar {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s ease-out 0.8s both;
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.trust-icon {
+    font-size: 1.2rem;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Impact Numbers - Prova Social */
+.impact-numbers {
+    padding: 3rem 0;
+    background: white;
+    margin-top: -3rem;
+    position: relative;
+    z-index: 3;
+}
+
+.numbers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.number-card {
+    text-align: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    transition: transform 0.3s;
+}
+
+.number-card:hover {
+    transform: translateY(-5px);
+}
+
+.number-card.highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.number-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.number-card.highlight .number-value {
+    color: #FFD700;
+}
+
+.number-label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+.number-detail {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Section Title Padrão */
+.section-title {
     font-size: 3rem;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+}
+
+/* Problems Section */
+.problems-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.problems-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.problem-box {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+}
+
+.problem-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.problem-emoji {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.problem-box h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.problem-box p {
+    color: #7f8c8d;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.solution-cta {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 3rem;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    margin-top: 3rem;
+}
+
+.solution-cta h3 {
+    font-size: 2.2rem;
     margin-bottom: 1rem;
     color: white;
 }
 
-.hero-subtitle {
+.solution-cta p {
     font-size: 1.3rem;
     margin-bottom: 2rem;
     opacity: 0.95;
 }
 
-.hero-buttons {
+.btn-solution {
+    display: inline-block;
+    background: white;
+    color: #667eea;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.btn-solution:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+/* How Works Visual */
+.how-works-visual {
+    padding: 5rem 0;
+    background: white;
+}
+
+.steps-visual {
     display: flex;
-    gap: 1rem;
+    align-items: center;
     justify-content: center;
+    gap: 2rem;
     flex-wrap: wrap;
+    margin-bottom: 4rem;
 }
 
-/* Sections */
-section {
-    padding: 4rem 0;
-}
-
-section h2 {
+.step-visual {
+    flex: 1;
+    min-width: 280px;
     text-align: center;
+    padding: 2.5rem;
+    background: #f8f9fa;
+    border-radius: 25px;
+}
+
+.step-circle {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+}
+
+.step-num {
     font-size: 2.5rem;
+    font-weight: 900;
+    color: white;
+}
+
+.step-icon-big {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.step-visual h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
     margin-bottom: 1rem;
 }
 
-section p {
-    text-align: center;
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
-}
-
-.subtitle {
-    font-size: 1.5rem;
+.step-visual p {
     color: #7f8c8d;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
 }
 
-/* About Section */
-.about-section {
-    background: #f8f9fa;
-}
-
-/* E-book Section */
-.ebook-section {
+.step-example {
     background: white;
-}
-
-.ebook-highlights {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin: 3rem 0;
-}
-
-.highlight-item {
-    text-align: center;
-    padding: 2rem;
-    background: #f8f9fa;
+    padding: 1.2rem;
     border-radius: 15px;
+    border-left: 4px solid #667eea;
+    text-align: left;
+    font-size: 1rem;
 }
 
-.highlight-item h3 {
+.step-example strong {
     color: #667eea;
+}
+
+.step-arrow {
+    font-size: 4rem;
+    color: #667eea;
+    font-weight: 900;
+}
+
+/* Calculation Visual */
+.calculation-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin: 4rem 0;
+}
+
+.calc-box {
+    flex: 1;
+    min-width: 300px;
+    padding: 2.5rem;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.before-calc {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.after-calc {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+}
+
+.calc-box h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.calc-value {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0;
+}
+
+.calc-value.green {
+    color: #FFD700;
+}
+
+.calc-detail {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.calc-vs {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #667eea;
+}
+
+.economy-highlight {
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    padding: 2.5rem;
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.economy-label {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.economy-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.economy-detail {
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Story Section */
+.story-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.story-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.story-img-placeholder {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    aspect-ratio: 4/5;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.img-content {
+    text-align: center;
+}
+
+.img-emoji {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.img-text {
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
 }
 
-/* Guides Section */
-.guides-section {
-    background: #f8f9fa;
+.img-subtext {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 1rem;
 }
 
-/* Articles Section */
-.articles-section {
+.img-distance {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #FFD700;
+}
+
+.story-stats-mini {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.stat-mini {
     background: white;
-}
-
-/* CTA Section */
-.cta-section {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-    color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
     text-align: center;
 }
 
-.cta-section h2 {
+.stat-mini strong {
+    display: block;
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 0.3rem;
+}
+
+.stat-mini span {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.content-label {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.story-content-side h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+
+.story-text p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.quote-box {
+    background: white;
+    border-left: 5px solid #667eea;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.quote-box p {
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.results-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem 0;
+}
+
+.results-box h4 {
+    font-size: 1.3rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.results-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.results-box li {
+    padding: 0.8rem 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.btn-story {
+    display: inline-block;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 0.3rem;
+    transition: all 0.3s;
+}
+
+.btn-story:hover {
+    color: #764ba2;
+    border-bottom-color: #764ba2;
+    transform: translateX(5px);
+}
+
+/* E-book Showcase */
+.ebook-showcase {
+    padding: 5rem 0;
+    background: white;
+}
+
+.ebook-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.ebook-visual {
+    position: relative;
+}
+
+.ebook-cover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    aspect-ratio: 3/4;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    box-shadow: 0 30px 60px rgba(102, 126, 234, 0.3);
+}
+
+.cover-content {
+    text-align: center;
     color: white;
 }
 
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border-radius: 50px;
+.cover-icon {
+    font-size: 5rem;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+.cover-content h3 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: white;
+    line-height: 1.2;
+}
+
+.cover-content p {
+    font-size: 1.5rem;
     font-weight: 600;
+    opacity: 0.9;
+}
+
+.ebook-badge-price {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+    background: #ff4757;
+    color: white;
+    padding: 2rem;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+}
+
+.badge-label {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge-amount {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.details-label {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.ebook-details h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.details-intro {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.ebook-features {
+    margin-bottom: 2.5rem;
+}
+
+.feature-item {
+    display: flex;
+    gap: 1.2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.feature-check {
+    font-size: 2rem;
+    color: #27ae60;
+    flex-shrink: 0;
+}
+
+.feature-text strong {
+    display: block;
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.feature-text p {
+    color: #7f8c8d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.btn-ebook-main {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem 3.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.3rem;
+    transition: all 0.3s;
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
+}
+
+.btn-ebook-main:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+}
+
+.ebook-guarantee {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Transformation */
+.transformation-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.transform-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.transform-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.transform-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.transform-emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.transform-header h3 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+.transform-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.transform-list li {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.icon-no,
+.icon-yes {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.transform-cost {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.transform-cost span {
+    display: block;
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 0.5rem;
+}
+
+.transform-cost strong {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+}
+
+.transform-cost.bad strong {
+    color: #e74c3c;
+}
+
+.transform-cost.good strong {
+    color: #27ae60;
+}
+
+.transform-arrow-big {
+    font-size: 5rem;
+    color: #667eea;
+    text-align: center;
+    font-weight: 900;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+.faq-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.faq-card {
+    background: #f8f9fa;
+    padding: 2.5rem;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+.faq-card:hover {
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.faq-card h4 {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.faq-card p {
+    color: #7f8c8d;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+/* Final CTA */
+.final-cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.final-cta-box {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.final-cta-box h2 {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.final-cta-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+}
+
+.final-cta-question {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 2.5rem 0;
+    line-height: 1.6;
+}
+
+.final-cta-buttons {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 3rem 0;
+}
+
+.btn-final-primary,
+.btn-final-secondary {
+    padding: 1.5rem 3.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s;
 }
 
-.btn-primary {
-    background: #667eea;
+.btn-final-primary {
+    background: #ff4757;
     color: white;
+    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
 }
 
-.btn-primary:hover {
-    background: #764ba2;
-    transform: translateY(-2px);
+.btn-final-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(255, 71, 87, 0.6);
 }
 
-.btn-secondary {
+.btn-final-secondary {
     background: white;
     color: #667eea;
 }
 
-.btn-secondary:hover {
+.btn-final-secondary:hover {
     background: #f8f9fa;
-    transform: translateY(-2px);
+    transform: translateY(-4px);
 }
 
-.btn-accent {
+.final-trust-badges {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.trust-badge {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Free Section */
+.free-section {
+    padding: 5rem 0;
+    background: #f8f9fa;
+}
+
+.free-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.free-item {
+    background: white;
+    padding: 3rem;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.free-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.free-item.featured {
+    border: 3px solid #667eea;
+}
+
+.featured-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
     background: #ff4757;
     color: white;
-    font-size: 1.2rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
-.btn-accent:hover {
-    background: #ee5a6f;
-    transform: translateY(-2px);
+.free-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
 }
 
-.btn-link {
-    background: transparent;
-    color: #667eea;
-    border: 2px solid #667eea;
+.free-item h3 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
 }
 
-.btn-link:hover {
+.free-item p {
+    color: #7f8c8d;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.btn-free-download {
+    display: inline-block;
     background: #667eea;
     color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s;
 }
 
-.btn-large {
-    padding: 1.5rem 3rem;
-    font-size: 1.3rem;
+.btn-free-download:hover {
+    background: #764ba2;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
 
-/* Responsivo */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-h1 {
+        font-size: 3rem;
+    }
+    
+    .story-layout,
+    .ebook-layout,
+    .transform-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .transform-arrow-big {
+        transform: rotate(90deg);
+    }
+}
+
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
+    .hero-h1 {
+        font-size: 2.2rem;
     }
     
-    .hero-subtitle {
-        font-size: 1.1rem;
+    .hero-lead {
+        font-size: 1.2rem;
     }
     
-    .hero-buttons {
+    .hero-cta-group,
+    .final-cta-buttons {
         flex-direction: column;
-        align-items: center;
     }
     
-    section h2 {
+    .section-title {
         font-size: 2rem;
+    }
+    
+    .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .steps-visual {
+        flex-direction: column;
+    }
+    
+    .step-arrow {
+        transform: rotate(90deg);
+    }
+    
+    .calculation-visual {
+        flex-direction: column;
+    }
+    
+    .calc-vs {
+        transform: rotate(90deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+    
+    .hero-h1 {
+        font-size: 1.8rem;
+    }
+    
+    .numbers-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
+
 {{ end }}
