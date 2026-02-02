@@ -105,6 +105,281 @@
     </div>
 </section>
 
+<div class="urgency-timer-container">
+    <div class="urgency-banner">
+        <div class="urgency-icon">⚡</div>
+        <div class="urgency-content">
+            <h3 class="urgency-title">⏰ Oferta Especial Expira em:</h3>
+            <div id="countdownTimer" class="countdown-timer">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+            <p class="urgency-message">
+                Após o término, perde o bônus da <strong>Planilha de Milhas Grátis</strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Timer de Urgência - Estilos */
+.urgency-timer-container {
+    margin: 2rem 0;
+    animation: slideDown 0.6s ease-out;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.urgency-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    animation: moveStripes 20s linear infinite;
+}
+
+.urgency-icon {
+    font-size: 3rem;
+    animation: pulse 1.5s ease-in-out infinite;
+    z-index: 1;
+}
+
+.urgency-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.urgency-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+    font-family: 'Courier New', monospace;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.countdown-separator {
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0.7;
+    animation: blink 1s infinite;
+}
+
+.urgency-message {
+    margin: 1rem 0 0 0;
+    font-size: 1.1rem;
+    text-align: center;
+    opacity: 0.95;
+}
+
+.urgency-message strong {
+    font-size: 1.3rem;
+    text-decoration: underline;
+}
+
+/* Animações */
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes blink {
+    0%, 49%, 100% {
+        opacity: 1;
+    }
+    50%, 99% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes moveStripes {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-40px);
+    }
+}
+
+/* Timer Sticky (opcional - descomente para fixar no topo ao rolar) */
+/*
+.urgency-timer-container.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    margin: 0;
+    animation: slideDownSticky 0.4s ease-out;
+}
+
+.urgency-timer-container.sticky .urgency-banner {
+    border-radius: 0;
+    padding: 1rem 2rem;
+}
+
+.urgency-timer-container.sticky .urgency-title {
+    font-size: 1.2rem;
+}
+
+.urgency-timer-container.sticky .countdown-item {
+    padding: 0.5rem 1rem;
+    min-width: 60px;
+}
+
+.urgency-timer-container.sticky .countdown-value {
+    font-size: 1.8rem;
+}
+
+@keyframes slideDownSticky {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+*/
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .urgency-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    
+    .urgency-icon {
+        font-size: 2.5rem;
+    }
+    
+    .urgency-title {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-timer {
+        gap: 0.3rem;
+        flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+        padding: 0.8rem 1rem;
+        min-width: 70px;
+    }
+    
+    .countdown-value {
+        font-size: 2rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.7rem;
+    }
+    
+    .urgency-message {
+        font-size: 1rem;
+    }
+}
+
+/* Estado Expirado */
+.urgency-timer-container.expired .urgency-banner {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+}
+
+.urgency-timer-container.expired .countdown-timer {
+    opacity: 0.5;
+}
+</style>
+
+<script>
+// Timer de Urgência - JavaScript
+(function() {
+    'use strict';
+    
+    const timerContainer = document.querySelector('.urgency-timer-container');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    const urgencyMessage = document.querySelector('.urgency-message');
+
 <!-- Bônus -->
 <section class="bonus-section">
     <div class="container">
