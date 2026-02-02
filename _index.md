@@ -1,10 +1,6 @@
 ---
 title: "Leve Vida - Voe Mais, Pague Menos"
 description: "Aprenda estratégias reais de acúmulo de milhas para viajar mais gastando menos. E-book completo com 12 capítulos práticos."
-<<<<<<< HEAD
-layout: "home"
----
-=======
 ---
 
 <div class="homepage">
@@ -274,4 +270,3 @@ section p {
     }
 }
 </style>
->>>>>>> 2fdf8c749f81d10686af5035f5d48aec833dabb5

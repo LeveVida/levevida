@@ -262,7 +262,7 @@ git init
 git add .
 git commit -m "Site Leve Vida reformulado"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/levevida.git
+git remote add origin https://github.com/LeveVida/levevida.git
 git push -u origin main
 
 # 8. Configure Netlify
