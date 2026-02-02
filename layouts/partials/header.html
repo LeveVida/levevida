@@ -1,16 +1,14 @@
-<!-- Header -->
+<!-- VARIAÇÃO 1: SÓ LOGO (SEM TEXTO) -->
+
 <header class="site-header">
     <div class="header-container">
-        <!-- Logo -->
-        <div class="logo">
-            <a href="/">
-                <img src="/images/logo.png" alt="Leve Vida" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span class="logo-text">Leve Vida - Voe Mais, Pague Menos</span>
-            </a>
-        </div>
+        <!-- Logo Apenas (sem texto) -->
+        <a href="/" class="header-logo">
+            <img src="/images/logo.png" alt="Leve Vida" class="logo-img">
+        </a>
         
-        <!-- Menu Desktop -->
-        <nav class="main-nav">
+        <!-- Navigation -->
+        <nav class="header-nav">
             <ul class="nav-menu">
                 <li><a href="/">Início</a></li>
                 <li><a href="/guias/">Guias</a></li>
@@ -21,34 +19,19 @@
             </ul>
         </nav>
         
-        <!-- CTA Button -->
-        <div class="header-cta">
-            <a href="/ebooks/" class="btn-ebook">📚 E-book R$ 47</a>
-        </div>
+        <a href="/ebooks/" class="header-cta">
+            📚 E-book R$ 47
+        </a>
         
-        <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-toggle" aria-label="Menu">
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
-    
-    <!-- Mobile Menu -->
-    <nav class="mobile-nav">
-        <ul class="mobile-menu">
-            <li><a href="/">Início</a></li>
-            <li><a href="/guias/">Guias</a></li>
-            <li><a href="/artigos/">Artigos</a></li>
-            <li><a href="/ebooks/">E-books</a></li>
-            <li><a href="/sobre/">Sobre</a></li>
-            <li><a href="/contato/">Contato</a></li>
-        </ul>
-    </nav>
 </header>
 
 <style>
-/* Header Styles */
 .site-header {
     background: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -67,91 +50,71 @@
     gap: 2rem;
 }
 
-/* Logo */
-.logo a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #2c3e50;
+.header-logo {
+    display: block;
+    transition: opacity 0.3s;
 }
 
-.logo img {
+.header-logo:hover {
+    opacity: 0.8;
+}
+
+.logo-img {
     height: 50px;
-    margin-right: 1rem;
+    width: auto;
+    display: block;
 }
 
-.logo-text {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #667eea;
-}
-
-/* Navigation - HORIZONTAL */
-.main-nav {
+/* Navigation */
+.header-nav {
     flex: 1;
-    display: flex;
-    justify-content: center;
 }
 
 .nav-menu {
+    display: flex;
     list-style: none;
-    padding: 0;
     margin: 0;
-    display: flex;  /* ⭐ HORIZONTAL - lado a lado */
+    padding: 0;
     gap: 2rem;
-    align-items: center;
+    justify-content: center;
 }
 
-.nav-menu li {
-    display: inline-block;  /* ⭐ lado a lado */
-}
-
-.nav-menu a {
+.nav-menu li a {
     text-decoration: none;
     color: #2c3e50;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s;
-    padding: 0.5rem 0;
-    border-bottom: 2px solid transparent;
 }
 
-.nav-menu a:hover {
+.nav-menu li a:hover {
     color: #667eea;
-    border-bottom-color: #667eea;
 }
 
-/* CTA Button */
 .header-cta {
-    display: flex;
-}
-
-.btn-ebook {
+    display: inline-block;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
     transition: all 0.3s;
     white-space: nowrap;
 }
 
-.btn-ebook:hover {
+.header-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
 }
 
-/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
     gap: 5px;
-    background: none;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0.5rem;
 }
 
 .mobile-menu-toggle span {
@@ -159,85 +122,60 @@
     height: 3px;
     background: #2c3e50;
     border-radius: 3px;
-    transition: all 0.3s;
 }
 
-/* Mobile Navigation */
-.mobile-nav {
-    display: none;
-    background: white;
-    border-top: 1px solid #e0e0e0;
-}
-
-.mobile-menu {
-    list-style: none;
-    padding: 1rem 2rem;
-    margin: 0;
-}
-
-.mobile-menu li {
-    margin-bottom: 1rem;
-}
-
-.mobile-menu a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-weight: 600;
-    font-size: 1.1rem;
-    display: block;
-    padding: 0.5rem 0;
-}
-
-.mobile-menu a:hover {
-    color: #667eea;
-}
-
-/* Responsive */
 @media (max-width: 968px) {
-    .main-nav {
+    .header-nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
     
-    .header-cta {
-        display: none;
+    .header-nav.active {
+        display: block;
+    }
+    
+    .nav-menu {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .nav-menu li a {
+        display: block;
+        padding: 1rem;
+        border-bottom: 1px solid #f0f0f0;
     }
     
     .mobile-menu-toggle {
         display: flex;
     }
     
-    .mobile-nav.active {
-        display: block;
+    .header-cta {
+        display: none;
     }
 }
 
-@media (max-width: 480px) {
-    .logo-text {
-        font-size: 0.9rem;
+@media (max-width: 768px) {
+    .logo-img {
+        height: 40px;
     }
 }
 </style>
 
 <script>
-// Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
     const toggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
+    const nav = document.querySelector('.header-nav');
     
-    if (toggle) {
-        toggle.addEventListener('click', function() {
-            mobileNav.classList.toggle('active');
-            this.classList.toggle('active');
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => nav.classList.toggle('active'));
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => nav.classList.remove('active'));
         });
     }
-    
-    // Close mobile menu when clicking on a link
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            mobileNav.classList.remove('active');
-            toggle.classList.remove('active');
-        });
-    });
-});
+})();
 </script>
