@@ -1,6 +1,6 @@
 ---
 title: "Sobre o Leve Vida"
-description: "Conheça a história por trás do Leve Vida: como a distância entre Cuiabá-MT e Montes Claros-MG nos ensinou a viajar mais gastando menos."
+description: "Conheça a história por trás do Leve Vida e como economizamos mais de R$ 15.000 em passagens aéreas"
 ---
 
 ## 💙 Nossa História
@@ -13,7 +13,7 @@ Apaixonados e decididos a construir nossa vida juntos, enfrentávamos um desafio
 
 ### O Desafio
 
-Cada reencontro com a família dela - pais, irmãos e amigos em Montes Claros - se transformava numa maratona de buscas por passagens mais acessíveis. 
+Cada reencontro com a família dela - pais, irmãos e amigos em Montes Claros - se transformava numa maratona de buscas por passagens mais acessíveis.
 
 **Mas os preços elevados quase sempre tiravam o nosso fôlego.**
 
@@ -38,10 +38,10 @@ Descobrimos que era possível:
 
 **Em 3 anos de aplicação das estratégias:**
 
-✅ Visitamos a família 04 vezes (2023-2025)  
+✅ Visitamos a família 06 vezes (2023-2025)
+✅ Viajamos também para Aracaju, Fortaleza, Gramado e Canela, Maceió, Porto de Galinhas, Punta Cana e vários outros destinos  
 ✅ Economia total: Mais de R$ 15.000  
-✅ Viajamos também para Aracaju, Caxias do Sul, Canela, Gramado, Fortaleza, Ilha Bela, Maceió, Porto de Galinhas, Punta Cana, Recife  
-✅ Nunca mais deixamos de ver quem amamos por falta de dinheiro  
+✅ Nunca mais deixamos de ver quem amamos por falta de dinheiro
 
 ---
 
@@ -134,17 +134,17 @@ Tem dúvidas? Quer compartilhar sua história?
 ✅ Ser transparentes sobre limitações e desafios  
 ✅ Atualizar informações quando necessário  
 ✅ Responder dúvidas com atenção e respeito  
-✅ Nunca fazer promessas que não podemos cumprir  
+✅ Nunca fazer promessas que não podemos cumprir
 
 **Não prometemos:**
 ❌ Milhas infinitas sem esforço  
 ❌ Fórmulas mágicas  
-❌ Que você ficará rico  
+❌ Que você ficará rico
 
 **Prometemos:**
 ✅ Conhecimento real e aplicável  
 ✅ Economia genuína em viagens  
-✅ Suporte honesto  
+✅ Suporte honesto
 
 ---
 
