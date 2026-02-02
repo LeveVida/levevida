@@ -118,21 +118,6 @@ Para capturar imagens impressionantes de Fortaleza que transmitam toda a beleza 
 - **Capture a autenticidade local:** Fotografe os pescadores do Mucuripe em ação, as redes coloridas sendo tecidas, as rendeiras do Mercado Central criando suas peças. Estas imagens transmitem a cultura viva da cidade e criam conexões emocionais com seus visitantes.
 - **Destaque a diversidade de paisagens:** Varie entre grandes panorâmicas (como as dunas de Cumbuco) e detalhes texturizados (a areia fina, as escamas de um peixe no mercado, os detalhes da arquitetura do Theatro José de Alencar) para criar um portfólio visual abrangente e envolvente.
 
-#### 💡 Dicas Técnicas para Desenvolvedores
-
-Ao implementar as imagens no seu site, preste atenção especial aos seguintes aspectos:
-
-```html
-<!-- Exemplo de implementação para imagens responsivas -->
-<picture>
-  <source media="(max-width: 600px)" srcset="fortaleza-praia-mobile.jpg 1x, fortaleza-praia-mobile-2x.jpg 2x">
-  <source media="(min-width: 601px)" srcset="fortaleza-praia-desktop.jpg 1x, fortaleza-praia-desktop-2x.jpg 2x">
-  <img src="fortaleza-praia-default.jpg" alt="Vista panorâmica da Praia de Iracema em Fortaleza" loading="lazy">
-</picture>
-```
-
-A implementação correta de imagens responsivas não apenas melhora a experiência do usuário, mas também contribui para uma melhor classificação nos mecanismos de busca, já que o desempenho do site e a experiência móvel são fatores importantes de SEO.
-
 ---
 
 ## ✨ Conclusão
