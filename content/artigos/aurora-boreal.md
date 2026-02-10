@@ -25,32 +25,32 @@ Essas luzes variam de **verdes e amarelos a vermelhos, azuis e violetas**, poden
 
 Os melhores lugares para observar a aurora boreal estão localizados nas regiões árticas e subárticas:
 
-### 🇳🇴 **Noruega**
+### **Noruega**
 A cidade de **Tromsø** é famosa por suas frequentes aparições da aurora boreal. Conhecida como a "capital do Ártico", oferece excelente infraestrutura turística.
 
 **Destaque:** Ilhas Lofoten - paisagens incríveis + auroras
 
-### 🇸🇪 **Suécia**
+### **Suécia**
 **Abisko** é um destino popular entre os caçadores de auroras. O Parque Nacional de Abisko tem um dos céus mais claros da Suécia.
 
 **Destaque:** Hotel de Gelo + auroras = experiência única
 
-### 🇫🇮 **Finlândia**
+### **Finlândia**
 A **Lapônia finlandesa** oferece uma experiência mágica com suas cabanas de vidro, onde você pode observar as auroras do conforto de sua cama!
 
 **Destaque:** Visite a vila do Papai Noel em Rovaniemi
 
-### 🇮🇸 **Islândia**
+### **Islândia**
 **Reykjavik** e áreas ao redor são pontos privilegiados. A Islândia combina auroras com paisagens vulcânicas espetaculares.
 
 **Destaque:** Blue Lagoon + auroras = combo perfeito
 
-### 🇨🇦 **Canadá**
+### **Canadá**
 O **Yukon** e os **Territórios do Noroeste** são ótimos lugares para observar as auroras. Yellowknife é considerada a "capital mundial das auroras".
 
 **Destaque:** Experiências indígenas + auroras
 
-### 🇺🇸 **Alasca**
+### **Alasca**
 **Fairbanks** é um dos destinos mais acessíveis. Tem uma das maiores taxas de visibilidade de auroras do mundo.
 
 **Destaque:** Mais acessível para brasileiros
