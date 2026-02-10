@@ -206,26 +206,24 @@ No e-book **ROTA DAS MILHAS**, você tem acesso a **12 capítulos completos** co
 
 ### ✅ Conteúdo Completo
 
-- **Capítulo 1:** Introdução ao Mundo das Milhas
-- **Capítulo 2:** Melhores Cartões de Crédito (Análise Completa)
-- **Capítulo 3:** Técnicas de Acumulação Acelerada
+- **Capítulo 1:** O Universo das Milhas/Pontos
+- **Capítulo 2:** Primeiros Passos: Iniciando sua Jornada
+- **Capítulo 3:** Estratégias para Acúmulo de Milhas/Pontos
 - **Capítulo 4:** Transferência de Pontos (Quando e Como)
-- **Capítulo 5:** Sweet Spots (Passagens com Melhor Custo-Benefício)
-- **Capítulo 6:** Pesquisa e Resgate de Passagens
-- **Capítulo 7:** Programas de Fidelidade Brasileiros e Internacionais
-- **Capítulo 8:** Gestão Inteligente de Milhas
-- **Capítulo 9:** Viagens Internacionais (Europa, Ásia, América)
-- **Capítulo 10:** Hotéis e Upgrades
-- **Capítulo 11:** Erros que Custam Caro (Como Evitar)
-- **Capítulo 12:** Seu Plano de Ação Completo
+- **Capítulo 5:** Datas Estratégicas e Dicas Práticas
+- **Capítulo 6:** Emissão de Passagens
+- **Capítulo 7:** Voos Executivos - Descobrindo "Sweet Spots" (Classe Executiva com Melhor Custo-Benefício)
+- **Capítulo 8:** Programas de Fidelidade
+- **Capítulo 9:** Checklist de Viagem Essencial
+- **Capítulo 10:** Hospedagem
+- **Capítulo 11:** Ferramentas e Sites Úteis
+- **Capítulo 12:** Conclusão
 
 ### 🎁 Bônus Exclusivos
 
 - ✅ **Planilha de Controle de Milhas** (Excel)
-- ✅ **Calculadora de Sweet Spots**
-- ✅ **Calendário de Promoções 2026**
-- ✅ **Lista de Cartões Atualizada**
-- ✅ **Grupo Exclusivo no Telegram**
+- ✅ **Amostra Grátis do E-book** (PDF)
+- ✅ **Calendário de Milhas 2026**
 - ✅ **Atualizações Vitalícias Gratuitas**
 
 ### 💰 Investimento Especial
