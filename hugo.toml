@@ -1,10 +1,10 @@
 baseURL = 'https://levevida.blog.br/'
 languageCode = 'pt-br'
-title = 'Leve Vida - Voe Mais, Pague Menos'
+title = 'Leve Vida - Voe Alto, Viva Leve!'
 
 [params]
   description = 'Aprenda estratégias reais de acúmulo de milhas para viajar mais gastando menos. E-book completo com planilhas e ferramentas práticas.'
-  author = 'Emerson - Leve Vida'
+  author = 'Blog Leve Vida'
   
   # Informações de contato ATUALIZADAS
   email = 'equipelevevida@gmail.com'
@@ -18,7 +18,7 @@ title = 'Leve Vida - Voe Mais, Pague Menos'
     kwai = 'https://kwai.com/@levevida88'
   
   # Google Analytics (configure seu ID)
-  googleAnalytics = 'G-XXXXXXXXXX'
+  googleAnalytics = 'G-5THEF9N1MD'
   
   # SEO
   [params.seo]
@@ -88,3 +88,4 @@ title = 'Leve Vida - Voe Mais, Pague Menos'
     respectDoNotTrack = true
   [privacy.youtube]
     privacyEnhanced = true
+
