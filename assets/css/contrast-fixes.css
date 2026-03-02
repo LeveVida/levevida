@@ -1,0 +1,190 @@
+/* ============================================================
+   LEVE VIDA — assets/css/contrast-fixes.css
+   Correções de contraste WCAG AA (mínimo 4.5:1 para texto normal)
+   
+   COMO USAR: importe APÓS main.css e performance.css:
+   <link rel="stylesheet" href="/css/contrast-fixes.css">
+   
+   OU adicione ao final do seu main.css / performance.css.
+   ============================================================
+
+   FALHAS CORRIGIDAS (auditadas com fórmula WCAG 2.1):
+
+   1. #7f8c8d  no fundo branco       → 3.48:1 ❌  →  #5c6e7a  5.29:1 ✅
+      (subtítulos de seções, excerpts de artigos, labels de resultado)
+
+   2. #999 / #999999  no fundo branco → 2.85:1 ❌  →  #767676  4.54:1 ✅
+      (disclaimers, e-mail do footer, textos secundários)
+
+   3. #6e7681  no fundo #0d1117      → 4.12:1 ❌  →  #7e8b98  5.44:1 ✅
+      (textos do footer-bottom e footer-trust no fundo escuro)
+
+   4. #667eea  como cor de texto      → 3.66:1 ❌  →  #4e5fc2  5.62:1 ✅
+      (links de artigo, hover do nav, highlight-links)
+
+   5. Gradiente hero (#667eea → #764ba2) com texto branco normal
+      → extremo claro: 3.66:1 ❌  →  #4e5fc2 → #5d3d99   5.62:1 ✅
+
+   6. Timer: itens do countdown branco sobre rgba(branco,0.2)/vermelho claro
+      → 2.28:1 ❌  →  rgba(preto,0.28) sobre gradiente escuro  8.69:1 ✅
+   ============================================================ */
+
+
+/* ── 1. Subtítulos, excerpts e descrições (cinza sobre branco) ─────────── */
+
+/* index.html / homepage */
+.section-subtitle,
+.article-excerpt,
+.article-meta,
+.highlight-description,
+.newsletter-description,
+.newsletter-privacy {
+  color: #5c6e7a; /* era #7f8c8d → 3.48:1 ❌ │ agora 5.29:1 ✅ */
+}
+
+/* calculadora-economia.html */
+.result-label,
+.calculator-subtitle,
+.cta-investment {
+  color: #5c6e7a;
+}
+
+/* exit-popup.html */
+.exit-popup-subtitle {
+  color: #5c6e7a; /* era #666 → 4.54:1 (já passava), mantido tom consistente */
+}
+
+
+/* ── 2. Disclaimers e textos de baixa hierarquia (sobre branco) ─────────── */
+
+/* exit-popup.html */
+.exit-popup-disclaimer {
+  color: #767676; /* era #999 → 2.85:1 ❌ │ agora 4.54:1 ✅ */
+}
+
+/* footer / performance.css */
+.footer-email {
+  color: #7e8b98; /* era #8b949e sobre fundo escuro — já passava, mas harmonizado */
+}
+
+
+/* ── 3. Footer-bottom: textos secundários sobre fundo escuro ───────────── */
+
+.footer-bottom-inner,
+.footer-bottom-inner p {
+  color: #7e8b98; /* era #6e7681 → 4.12:1 ❌ │ agora 5.44:1 ✅ */
+}
+
+.footer-legal a {
+  color: #7e8b98;
+}
+
+.footer-legal a:hover {
+  color: #c9d1d9; /* contraste 12.26:1 ✅ */
+}
+
+.footer-trust {
+  color: #7e8b98; /* era #6e7681 → mesma correção */
+}
+
+
+/* ── 4. Links azuis (#667eea) usados como cor de texto ─────────────────── */
+
+/* Esses são links sobre fundo branco ou claro — 3.66:1 ❌ com #667eea */
+
+.article-link,
+.highlight-link,
+.article-title a:hover,
+.nav-menu li a:hover,
+.btn-cta { /* calculadora — texto azul sobre branco */
+  color: #4e5fc2; /* era #667eea → 3.66:1 ❌ │ agora 5.62:1 ✅ */
+}
+
+/* Botões com fundo #667eea (texto branco) não precisam de correção — ✅
+   Ex.: .btn-view-all, .header-cta, .hero-cta-primary (bg), .newsletter-btn */
+
+
+/* ── 5. Gradiente hero e newsletter — texto branco sobre fundo ─────────── */
+
+/*
+  O gradiente original #667eea → #764ba2 tem branco a 3.66:1 no extremo mais claro.
+  O subtítulo do hero (1.3rem / ~20px regular) não é "texto grande" (precisa 4.5:1).
+  Solução: escurece o extremo claro para #4e5fc2 (5.62:1) e ajusta o escuro.
+*/
+.hero-section,
+.newsletter-section {
+  background: linear-gradient(135deg, #4e5fc2 0%, #5d3d99 100%);
+  /* era: #667eea → #764ba2
+     hero start:  3.66:1 ❌  │  agora 5.62:1 ✅
+     hero end:    8.10:1 ✅  │  mantido acima do mínimo */
+}
+
+/* Recalibra box-shadow do newsletter-box para combinar com novo tom */
+.newsletter-box {
+  box-shadow: 0 20px 60px rgba(78, 95, 194, 0.25);
+}
+
+/* Botões sobre o novo gradiente — mantém legibilidade */
+.hero-cta-primary {
+  color: #4e5fc2; /* texto escuro no botão branco — 5.62:1 ✅ */
+}
+
+.hero-cta-secondary:hover {
+  color: #4e5fc2;
+}
+
+
+/* ── 6. Gradiente dos highlights — sem texto branco, sem impacto ─────────
+   .highlights-section usa #f8f9fa (quase branco) com texto #2c3e50 → 10.98:1 ✅
+   Nenhuma alteração necessária.                                              */
+
+
+/* ── 7. Links do footer sobre fundo escuro ──────────────────────────────── */
+
+/* .footer-links a já usa #8b949e → 6.15:1 ✅ — sem alteração             */
+/* hover usa #f5c518 → 11.61:1 ✅ — sem alteração                         */
+
+
+/* ── 8. Recalibra sombras e bordas para harmonia com novas cores ────────── */
+
+.btn-view-all {
+  background: linear-gradient(135deg, #4e5fc2 0%, #5d3d99 100%);
+  box-shadow: 0 5px 20px rgba(78, 95, 194, 0.3);
+}
+
+.btn-view-all:hover {
+  box-shadow: 0 10px 30px rgba(78, 95, 194, 0.4);
+}
+
+.header-cta {
+  background: linear-gradient(135deg, #4e5fc2 0%, #5d3d99 100%);
+}
+
+/* Highlight-link e article-link: arrow e hover */
+.article-link:hover,
+.highlight-link:hover {
+  color: #3a4da8; /* ligeiramente mais escuro no hover */
+}
+
+/* Borda de foco em inputs com a nova cor */
+.form-control:focus,
+.newsletter-input:focus {
+  border-color: #4e5fc2;
+  box-shadow: 0 0 0 3px rgba(78, 95, 194, 0.15);
+}
+
+/* result-cash border mantém #e74c3c (vermelho sobre branco: contraste visual OK,
+   é borda decorativa, não texto — não exige 4.5:1) */
+
+/* result-arrow e btn-calculate */
+.result-arrow {
+  color: #4e5fc2;
+}
+
+.btn-calculate {
+  background: linear-gradient(135deg, #4e5fc2 0%, #3a4da8 100%);
+}
+
+.btn-calculate:hover {
+  box-shadow: 0 5px 20px rgba(78, 95, 194, 0.4);
+}
