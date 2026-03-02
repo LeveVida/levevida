@@ -1,0 +1,53 @@
+# ============================================================
+#  LEVE VIDA — static/_headers
+#  Regras de cache e segurança para o Netlify
+#  Referência: https://docs.netlify.com/routing/headers/
+# ============================================================
+
+# ── Segurança global ────────────────────────────────────────
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# ── Assets imutáveis (fingerprinted pelo Hugo) ──────────────
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ── Página inicial — sempre fresca ─────────────────────────
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# ── Artigos e guias — cache curto com revalidação ──────────
+/artigos/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/guias/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+# ── Landing Page do e-book — sem cache (A/B friendly) ──────
+/ebooks/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# ── Feed RSS ────────────────────────────────────────────────
+/index.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/rss+xml; charset=utf-8
+
+# ── Sitemap ─────────────────────────────────────────────────
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
