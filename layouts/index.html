@@ -34,12 +34,47 @@
             {{ $artigos = where $artigos "Params.draft" "!=" true }}
             {{ $artigos = $artigos | first 6 }}
             
-            {{ range $artigos }}
+            {{ range $index, $page := $artigos }}
             <article class="article-card">
                 <div class="article-image">
                     <a href="{{ .RelPermalink }}">
                         {{ if .Params.image }}
-                            <img src="{{ .Params.image }}" alt="{{ .Title }}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\'article-placeholder\'><span class=\'placeholder-icon\'>✈️</span></div>'">
+                            {{/* ── Imagem LCP: primeiro card sem lazy load ──────────────
+                                 fetchpriority="high" no primeiro item torna a imagem
+                                 prioritária para o browser, melhorando o LCP.
+                                 Os demais cards usam loading="lazy" para economizar banda.
+                                 width e height explícitos evitam CLS (layout shift).
+                                 srcset oferece versões responsivas reduzindo o download. */}}
+                            {{ if eq $index 0 }}
+                            <img src="{{ .Params.image }}"
+                                 srcset="{{ .Params.image | replaceRE `(\\.\\w+)$` `-400.webp 400w` }},
+                                         {{ .Params.image | replaceRE `(\\.\\w+)$` `-800.webp 800w` }},
+                                         {{ .Params.image }} 1200w"
+                                 sizes="(max-width: 480px) 100vw,
+                                        (max-width: 768px) 50vw,
+                                        350px"
+                                 width="800"
+                                 height="450"
+                                 alt="{{ .Title }}"
+                                 loading="eager"
+                                 fetchpriority="high"
+                                 decoding="sync"
+                                 onerror="this.parentElement.innerHTML='<div class=\'article-placeholder\'><span class=\'placeholder-icon\'>✈️</span></div>'">
+                            {{ else }}
+                            <img src="{{ .Params.image }}"
+                                 srcset="{{ .Params.image | replaceRE `(\\.\\w+)$` `-400.webp 400w` }},
+                                         {{ .Params.image | replaceRE `(\\.\\w+)$` `-800.webp 800w` }},
+                                         {{ .Params.image }} 1200w"
+                                 sizes="(max-width: 480px) 100vw,
+                                        (max-width: 768px) 50vw,
+                                        350px"
+                                 width="800"
+                                 height="450"
+                                 alt="{{ .Title }}"
+                                 loading="lazy"
+                                 decoding="async"
+                                 onerror="this.parentElement.innerHTML='<div class=\'article-placeholder\'><span class=\'placeholder-icon\'>✈️</span></div>'">
+                            {{ end }}
                         {{ else }}
                             <div class="article-placeholder">
                                 <span class="placeholder-icon">✈️</span>
@@ -102,7 +137,6 @@
         </div>
         
         <div class="highlights-grid">
-            <!-- Card 1 -->
             <div class="highlight-card">
                 <div class="highlight-icon">💡</div>
                 <h3 class="highlight-title">Acúmulo de Milhas</h3>
@@ -115,7 +149,6 @@
                 </a>
             </div>
             
-            <!-- Card 2 -->
             <div class="highlight-card">
                 <div class="highlight-icon">🗺️</div>
                 <h3 class="highlight-title">Roteiros Exclusivos</h3>
@@ -128,7 +161,6 @@
                 </a>
             </div>
             
-            <!-- Card 3 -->
             <div class="highlight-card">
                 <div class="highlight-icon">🏷️</div>
                 <h3 class="highlight-title">Promoções</h3>
@@ -141,7 +173,6 @@
                 </a>
             </div>
             
-            <!-- Card 4 -->
             <div class="highlight-card">
                 <div class="highlight-icon">📚</div>
                 <h3 class="highlight-title">E-book ROTA DAS MILHAS</h3>
@@ -169,7 +200,7 @@
                 </p>
             </div>
             
-            <form action="https://formspree.io/f/YOUR-FORM-ID" method="POST" class="newsletter-form">
+            <div class="newsletter-form-wrapper">
                 <input 
                     type="email" 
                     name="email"
@@ -178,10 +209,10 @@
                     required
                     aria-label="Email para newsletter"
                 >
-                <button type="submit" class="newsletter-btn">
+                <button type="button" class="newsletter-btn" onclick="subscribeNewsletter()">
                     Inscrever-se ✉️
                 </button>
-            </form>
+            </div>
             
             <p class="newsletter-privacy">
                 🔒 Seus dados estão seguros. Nunca enviaremos spam.
@@ -189,6 +220,24 @@
         </div>
     </div>
 </section>
+
+<script>
+function subscribeNewsletter() {
+  const input = document.querySelector('.newsletter-input');
+  if (input && input.value) {
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://formspree.io/f/YOUR-FORM-ID';
+    const emailField = document.createElement('input');
+    emailField.type = 'hidden';
+    emailField.name = 'email';
+    emailField.value = input.value;
+    form.appendChild(emailField);
+    document.body.appendChild(form);
+    form.submit();
+  }
+}
+</script>
 
 <style>
 /* Hero Section */
@@ -204,10 +253,7 @@
 .hero-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     opacity: 0.3;
 }
@@ -244,10 +290,14 @@
     flex-wrap: wrap;
 }
 
+/* Touch targets: mínimo 44px de altura */
 .hero-cta-primary,
 .hero-cta-secondary {
-    display: inline-block;
-    padding: 1.2rem 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 2.5rem;
+    min-height: 44px;
     border-radius: 50px;
     font-weight: 700;
     font-size: 1.1rem;
@@ -329,10 +379,11 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
+/* Aspecto 16:9 explícito evita CLS — sem height fixo em px */
 .article-image {
     position: relative;
     width: 100%;
-    height: 220px;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 }
@@ -342,6 +393,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    display: block;
 }
 
 .article-card:hover .article-image img {
@@ -412,6 +464,7 @@
     flex: 1;
 }
 
+/* Touch target: mínimo 44px */
 .article-link {
     color: #667eea;
     font-weight: 600;
@@ -419,30 +472,26 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    min-height: 44px;
     transition: all 0.3s;
 }
 
-.article-link:hover {
-    gap: 0.8rem;
-}
+.article-link:hover { gap: 0.8rem; }
+.article-link .arrow { transition: transform 0.3s; }
+.article-link:hover .arrow { transform: translateX(5px); }
 
-.article-link .arrow {
-    transition: transform 0.3s;
-}
-
-.article-link:hover .arrow {
-    transform: translateX(5px);
-}
-
-/* Section CTA */
 .section-cta {
     text-align: center;
     margin-top: 3rem;
 }
 
+/* Touch target: mínimo 44px */
 .btn-view-all {
-    display: inline-block;
-    padding: 1rem 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2.5rem;
+    min-height: 44px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-radius: 50px;
@@ -478,10 +527,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.highlight-icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-}
+.highlight-icon { font-size: 3rem; margin-bottom: 1.5rem; }
 
 .highlight-title {
     font-size: 1.4rem;
@@ -495,27 +541,22 @@
     margin-bottom: 1.5rem;
 }
 
+/* Touch target: mínimo 44px */
 .highlight-link {
     color: #667eea;
     font-weight: 600;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
+    min-height: 44px;
     transition: all 0.3s;
 }
 
-.highlight-link:hover {
-    gap: 0.8rem;
-}
-
-.highlight-link .arrow {
-    transition: transform 0.3s;
-}
-
-.highlight-link:hover .arrow {
-    transform: translateX(5px);
-}
+.highlight-link:hover { gap: 0.8rem; }
+.highlight-link .arrow { transition: transform 0.3s; }
+.highlight-link:hover .arrow { transform: translateX(5px); }
 
 /* Newsletter */
 .newsletter-section {
@@ -527,10 +568,7 @@
 .newsletter-section::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
@@ -546,10 +584,7 @@
     z-index: 1;
 }
 
-.newsletter-icon {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
+.newsletter-icon { font-size: 3.5rem; margin-bottom: 1rem; }
 
 .newsletter-title {
     font-size: 2rem;
@@ -563,7 +598,7 @@
     margin-bottom: 2rem;
 }
 
-.newsletter-form {
+.newsletter-form-wrapper {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
@@ -571,7 +606,8 @@
 
 .newsletter-input {
     flex: 1;
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
+    min-height: 44px;
     border: 2px solid #e0e0e0;
     border-radius: 50px;
     font-size: 1rem;
@@ -583,8 +619,13 @@
     border-color: #667eea;
 }
 
+/* Touch target: mínimo 44px */
 .newsletter-btn {
-    padding: 1rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    min-height: 44px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border: none;
@@ -607,59 +648,23 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1.1rem;
-    }
-    
-    .hero-cta-group {
-        flex-direction: column;
-    }
-    
+    .hero-title { font-size: 2.5rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .hero-cta-group { flex-direction: column; align-items: center; }
     .hero-cta-primary,
-    .hero-cta-secondary {
-        width: 100%;
-    }
-    
-    .articles-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .newsletter-box {
-        padding: 2rem 1.5rem;
-    }
-    
-    .newsletter-form {
-        flex-direction: column;
-    }
-    
-    .newsletter-btn {
-        width: 100%;
-    }
+    .hero-cta-secondary { width: 100%; max-width: 320px; }
+    .articles-grid { grid-template-columns: 1fr; }
+    .section-title { font-size: 2rem; }
+    .newsletter-box { padding: 2rem 1.5rem; }
+    .newsletter-form-wrapper { flex-direction: column; }
+    .newsletter-btn { width: 100%; }
 }
 
 @media (max-width: 480px) {
-    .hero-section {
-        padding: 3rem 1rem;
-    }
-    
+    .hero-section { padding: 3rem 1rem; }
     .articles-section,
     .highlights-section,
-    .newsletter-section {
-        padding: 3rem 0;
-    }
-    
-    .article-image,
-    .article-placeholder {
-        height: 200px;
-    }
+    .newsletter-section { padding: 3rem 0; }
 }
 </style>
 
