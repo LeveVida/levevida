@@ -64,6 +64,60 @@
 <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 <link rel="dns-prefetch" href="https://hotmart.com">
 
+{{/* ── LCP: Preload da imagem principal (hero / og-image) ─────
+     Torna a imagem LCP detectável imediatamente no HTML,
+     sem depender de CSS ou JavaScript para descobri-la.
+     Ajuste o href para o caminho real da imagem hero da página. */}}
+{{ if .IsHome }}
+<link rel="preload"
+      as="image"
+      href="/images/og-levevida.jpg"
+      imagesrcset="/images/og-levevida-400.webp 400w,
+                   /images/og-levevida-800.webp 800w,
+                   /images/og-levevida-1200.webp 1200w"
+      imagesizes="100vw"
+      fetchpriority="high">
+{{ else if .Params.image }}
+<link rel="preload"
+      as="image"
+      href="{{ .Params.image }}"
+      fetchpriority="high">
+{{ end }}
+
+{{/* ── Google Fonts com font-display=swap ─────────────────────
+     &display=swap garante que o texto fique visível durante
+     o carregamento da fonte (evita FOIT — Flash of Invisible Text).
+     Substitua pela(s) fonte(s) que você usa no projeto.         */}}
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+</noscript>
+
+{{/* ── Substituições de métrica de fonte (reduz CLS no swap) ──
+     Define uma fonte fallback com métricas ajustadas para
+     corresponder à fonte web, minimizando reflow ao trocar.    */}}
+<style>
+  /* Fallback para Inter com métricas ajustadas */
+  @font-face {
+    font-family: 'Inter-fallback';
+    src: local('Arial');
+    ascent-override:  90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+    size-adjust: 107%;
+    font-display: swap;
+  }
+
+  /* Aplique a família fallback antes da fonte web carregar */
+  body {
+    font-family: 'Inter', 'Inter-fallback', Arial, sans-serif;
+  }
+</style>
+
 {{/* ── Font Awesome (ícones sociais) ─────────────────────── */}}
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -79,7 +133,6 @@
 {{/* ── Google Analytics 4 ─────────────────────────────────── */}}
 {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.analyticsID "G-5THEF9N1MD") }}
 {{ with .Site.Params.analyticsID }}
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
