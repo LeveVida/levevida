@@ -1,0 +1,224 @@
+/* ============================================================
+   LEVE VIDA — assets/css/performance.css
+   Melhorias de performance: font-display, scroll behavior,
+   back-to-top button e ajustes finos de Footer
+   Inclua este arquivo no seu main.css ou importe em baseof.html
+   ============================================================ */
+
+/* ─── 1. Font Display: Swap (evita FOIT / melhora LCP) ───── */
+@font-face {
+  font-display: swap; /* instrução global para qualquer @font-face customizada */
+}
+
+/*
+  Para fontes carregadas via Google Fonts, adicione &display=swap na URL.
+  Exemplo no head.html:
+  <link href="https://fonts.googleapis.com/css2?family=SuaFonte&display=swap" rel="stylesheet">
+*/
+
+/* ─── 2. Scroll suave global ─────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── 3. Botão "Voltar ao Topo" ───────────────────────────── */
+.btn-back-top {
+  display: none; /* exibido via JS quando scrollY > 400 */
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  z-index: 999;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-primary, #0a1963);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.25);
+  transition: background .2s, transform .2s;
+}
+.btn-back-top:hover {
+  background: var(--color-secondary, #f5c518);
+  color: #1a1a1a;
+  transform: translateY(-3px);
+}
+
+/* ─── 4. Footer — estilos globais do footer.html ───────────── */
+.footer-levevida {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-size: .93rem;
+  line-height: 1.6;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 36px;
+  padding: 52px 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo-link { display: inline-block; margin-bottom: 12px; }
+.footer-logo-link img { max-height: 48px; width: auto; }
+.footer-logo-text {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.footer-tagline {
+  font-size: .85rem;
+  color: #f5c518;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+.footer-desc { color: #8b949e; }
+
+.footer-heading {
+  color: #fff;
+  font-size: .85rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Links de navegação */
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a {
+  color: #8b949e;
+  transition: color .2s;
+}
+.footer-links a:hover { color: #f5c518; }
+
+/* Ícones sociais */
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #c9d1d9;
+  transition: color .2s, transform .15s;
+  font-size: .92rem;
+}
+.social-icon i { font-size: 1.2rem; width: 20px; text-align: center; }
+.social-icon:hover { transform: translateX(4px); }
+.social-instagram:hover { color: #e1306c; }
+.social-youtube:hover   { color: #ff0000; }
+.social-tiktok:hover    { color: #69c9d0; }
+.social-kwai:hover      { color: #ff6900; }
+
+/* Botão WhatsApp no footer */
+.btn-whatsapp-footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  color: #fff;
+  font-weight: 700;
+  font-size: .9rem;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  transition: background .2s;
+}
+.btn-whatsapp-footer:hover { background: #1aab52; }
+
+.footer-email {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8b949e;
+  transition: color .2s;
+  margin-bottom: 16px;
+  font-size: .88rem;
+  word-break: break-all;
+}
+.footer-email:hover { color: #f5c518; }
+
+/* Selos de confiança */
+.footer-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: .82rem;
+  color: #6e7681;
+}
+.footer-trust span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-trust i { color: #25D366; }
+
+/* Barra inferior */
+.footer-bottom {
+  border-top: 1px solid #21262d;
+  padding: 16px 24px;
+}
+.footer-bottom-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: .83rem;
+  color: #6e7681;
+}
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-legal a {
+  color: #6e7681;
+  transition: color .2s;
+}
+.footer-legal a:hover { color: #c9d1d9; }
+.footer-legal span { opacity: .4; }
+
+/* ─── 5. Imagens: aspect-ratio e lazy load ───────────────── */
+img {
+  height: auto;
+  max-width: 100%;
+}
+img[loading="lazy"] { content-visibility: auto; }
+
+/* ─── 6. Skip-to-content (acessibilidade) ───────────────── */
+.skip-to-content {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  overflow: hidden;
+  z-index: 9999;
+}
+.skip-to-content:focus {
+  left: 0;
+  background: var(--color-primary, #0a1963);
+  color: #fff;
+  padding: 8px 16px;
+  font-size: .9rem;
+  border-radius: 0 0 6px 0;
+}
+
+/* ─── 7. Responsive ajustes do footer ───────────────────── */
+@media (max-width: 600px) {
+  .footer-grid { gap: 28px; padding: 36px 16px 28px; }
+  .footer-bottom-inner { flex-direction: column; text-align: center; }
+  .footer-legal { justify-content: center; }
+  .social-icons { flex-direction: row; flex-wrap: wrap; gap: 16px; }
+  .social-icon span { display: none; } /* exibe só o ícone em mobile */
+  .social-icon i { font-size: 1.5rem; }
+}
