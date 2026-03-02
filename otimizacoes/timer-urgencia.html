@@ -1,0 +1,402 @@
+<!-- ========================================
+     TIMER DE URGÊNCIA
+     Coloque este código na página de vendas do e-book
+     (content/ebooks/rota-das-milhas.md)
+     ======================================== -->
+
+<div class="urgency-timer-container">
+    <div class="urgency-banner">
+        <div class="urgency-icon">⚡</div>
+        <div class="urgency-content">
+            <h3 class="urgency-title">⏰ Oferta Especial Expira em:</h3>
+            <div id="countdownTimer" class="countdown-timer" aria-live="polite" aria-atomic="true">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-separator" aria-hidden="true">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-separator" aria-hidden="true">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+            <p class="urgency-message" id="urgencyMessage">
+                Após o término, o preço volta para <strong>R$ 97,00</strong>
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Timer de Urgência - Estilos */
+.urgency-timer-container {
+    margin: 2rem 0;
+    animation: slideDown 0.6s ease-out;
+}
+
+.urgency-banner {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.urgency-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    animation: moveStripes 20s linear infinite;
+    /* will-change: transform instrui o browser a criar camada separada,
+       evitando que a animação de fundo invalide o layout dos elementos acima */
+    will-change: transform;
+}
+
+.urgency-icon {
+    font-size: 3rem;
+    animation: pulse 1.5s ease-in-out infinite;
+    z-index: 1;
+    /* Isolado em sua própria camada de composição */
+    will-change: transform;
+}
+
+.urgency-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.urgency-title {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.countdown-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1;
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada + largura mínima evita reflow ao trocar dígito */
+    min-width: 2ch;
+    text-align: center;
+}
+
+.countdown-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+}
+
+.countdown-separator {
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 0.7;
+    animation: blink 1s infinite;
+}
+
+.urgency-message {
+    margin: 1rem 0 0 0;
+    font-size: 1.1rem;
+    text-align: center;
+    opacity: 0.95;
+}
+
+.urgency-message strong {
+    font-size: 1.3rem;
+    text-decoration: underline;
+}
+
+/* ── Animações ───────────────────────────────────────────────
+   Todas as animações usam transform/opacity (propriedades de
+   composição) — não causam layout/paint, apenas composite.    */
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to   { transform: translateY(0);     opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1);   }
+    50%       { transform: scale(1.1); }
+}
+
+@keyframes blink {
+    0%, 49%, 100% { opacity: 1;   }
+    50%,  99%     { opacity: 0.3; }
+}
+
+@keyframes moveStripes {
+    from { transform: translateX(0);    }
+    to   { transform: translateX(-40px);}
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0);  }
+    25%       { transform: translateX(-5px);}
+    75%       { transform: translateX(5px); }
+}
+
+/* Estado expirado — controlado por classe CSS, não style inline */
+.urgency-timer-container.expired .urgency-banner {
+    background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+    box-shadow: none;
+}
+
+.urgency-timer-container.expired .countdown-timer {
+    opacity: 0.5;
+}
+
+/* Urgência extrema — shake via classe, não style.animation inline */
+.urgency-timer-container.is-critical {
+    animation: shake 0.5s infinite;
+}
+
+/* Timer Sticky (opcional) */
+/*
+.urgency-timer-container.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    margin: 0;
+}
+.urgency-timer-container.sticky .urgency-banner { border-radius: 0; padding: 1rem 2rem; }
+.urgency-timer-container.sticky .urgency-title  { font-size: 1.2rem; }
+.urgency-timer-container.sticky .countdown-item { padding: 0.5rem 1rem; min-width: 60px; }
+.urgency-timer-container.sticky .countdown-value{ font-size: 1.8rem; }
+*/
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .urgency-banner      { flex-direction: column; text-align: center; padding: 1.5rem; }
+    .urgency-icon        { font-size: 2.5rem; }
+    .urgency-title       { font-size: 1.2rem; }
+    .countdown-timer     { gap: 0.3rem; flex-wrap: wrap; }
+    .countdown-item      { padding: 0.8rem 1rem; min-width: 70px; }
+    .countdown-value     { font-size: 2rem; }
+    .countdown-label     { font-size: 0.7rem; }
+    .urgency-message     { font-size: 1rem; }
+}
+</style>
+
+<script>
+// Timer de Urgência — sem reflow forçado
+(function () {
+    'use strict';
+
+    // ── FASE 1: TODAS AS LEITURAS DO DOM (antes de qualquer mutação) ────────
+    var timerContainer  = document.querySelector('.urgency-timer-container');
+    var hoursEl         = document.getElementById('hours');
+    var minutesEl       = document.getElementById('minutes');
+    var secondsEl       = document.getElementById('seconds');
+    var urgencyMessage  = document.getElementById('urgencyMessage');
+
+    // ── CONFIGURAÇÕES ────────────────────────────────────────────────────────
+    var TIMER_MODE           = 'evergreen'; // 'evergreen' ou 'fixed'
+    var TIMER_DURATION_HOURS = 2;
+    var FIXED_END_DATE       = new Date('2026-06-01T23:59:59');
+
+    // ── ESTADO INTERNO (sem DOM) ─────────────────────────────────────────────
+    var endTime;
+    var intervalId      = null;
+    var isCritical      = false;
+    var isExpired       = false;
+
+    // Cache dos últimos valores exibidos — evita escritas no DOM quando
+    // o valor não mudou (ex.: horas iguais a cada segundo)
+    var lastHours   = -1;
+    var lastMinutes = -1;
+    var lastSeconds = -1;
+
+    // ── Funções auxiliares ───────────────────────────────────────────────────
+    function pad(num) {
+        return num < 10 ? '0' + num : '' + num;
+    }
+
+    function getEndTime() {
+        if (TIMER_MODE === 'evergreen') {
+            var saved = localStorage.getItem('urgencyTimerEnd');
+            if (saved) return new Date(saved);
+            var end = new Date(Date.now() + TIMER_DURATION_HOURS * 3600000);
+            localStorage.setItem('urgencyTimerEnd', end.toISOString());
+            return end;
+        }
+        return FIXED_END_DATE;
+    }
+
+    // ── Tick: executado 1× por segundo via setInterval ───────────────────────
+    /*
+      CORREÇÃO PRINCIPAL — reflow eliminado:
+
+      ANTES (problemático):
+        requestAnimationFrame(updateTimer) recursivo
+        → chamado ~60× por segundo (60 fps)
+        → 60 escritas em textContent por segundo
+        → browser recalcula layout desnecessariamente a cada frame
+
+      DEPOIS (correto):
+        setInterval(tick, 1000)
+        → chamado exatamente 1× por segundo
+        → escritas no DOM apenas quando o valor muda
+        → requestAnimationFrame DENTRO do setInterval garante que
+          as escritas ocorram no momento ideal do ciclo de render
+    */
+    function tick() {
+        // LEITURA de tempo (não é leitura de geometria DOM — sem reflow)
+        var diff = endTime - Date.now();
+
+        if (diff <= 0) {
+            // Timer expirado — para o intervalo
+            clearInterval(intervalId);
+            intervalId = null;
+
+            if (!isExpired) {
+                isExpired = true;
+
+                // BATCH WRITE via rAF — todas as escritas num único frame
+                requestAnimationFrame(function () {
+                    hoursEl.textContent   = '00';
+                    minutesEl.textContent = '00';
+                    secondsEl.textContent = '00';
+                    timerContainer.classList.add('expired');
+                    timerContainer.classList.remove('is-critical');
+                    urgencyMessage.innerHTML = '<strong>⚠️ Oferta expirada!</strong> O preço voltou para R$ 97,00';
+                });
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'timer_expired', {
+                        event_category: 'urgency_timer',
+                        event_label: 'ebook_offer'
+                    });
+                }
+            }
+            return;
+        }
+
+        // FASE 2: CÁLCULOS (sem tocar no DOM)
+        var h = Math.floor(diff / 3600000);
+        var m = Math.floor((diff % 3600000) / 60000);
+        var s = Math.floor((diff % 60000) / 1000);
+
+        var enterCritical = (h === 0 && m < 10 && !isCritical);
+
+        // Só escreve no DOM se algum valor mudou — evita reflows extras
+        if (h === lastHours && m === lastMinutes && s === lastSeconds && !enterCritical) {
+            return;
+        }
+
+        // Captura quais campos precisam de atualização ANTES de escrever
+        var updateH = (h !== lastHours);
+        var updateM = (m !== lastMinutes);
+        var updateS = (s !== lastSeconds);
+        var hStr = pad(h), mStr = pad(m), sStr = pad(s);
+
+        lastHours   = h;
+        lastMinutes = m;
+        lastSeconds = s;
+
+        // FASE 3: BATCH WRITE via rAF — uma única passagem de composição
+        requestAnimationFrame(function () {
+            if (updateH) hoursEl.textContent   = hStr;
+            if (updateM) minutesEl.textContent = mStr;
+            if (updateS) secondsEl.textContent = sStr;
+
+            // Estado crítico: adiciona classe CSS (não style inline)
+            if (enterCritical) {
+                isCritical = true;
+                timerContainer.classList.add('is-critical');
+                urgencyMessage.innerHTML = '<strong>🔥 ÚLTIMOS MINUTOS!</strong> Não perca esta oportunidade!';
+            }
+        });
+    }
+
+    // ── Inicialização ────────────────────────────────────────────────────────
+    endTime    = getEndTime();
+    tick();                            // executa imediatamente para popular os valores
+    intervalId = setInterval(tick, 1000); // depois, 1× por segundo
+
+    // ── Timer Sticky (opcional) ──────────────────────────────────────────────
+    /*
+      ATENÇÃO: a versão abaixo lê timerContainer.getBoundingClientRect()
+      UMA VEZ na inicialização (antes de qualquer scroll), sem nenhuma
+      mutação DOM prévia — isso é seguro e não causa reflow forçado.
+
+    var timerTop = timerContainer.getBoundingClientRect().top + window.scrollY;
+
+    window.addEventListener('scroll', function () {
+        // Leitura de pageYOffset (não é geometria de elemento) — OK
+        if (window.pageYOffset > timerTop + 100) {
+            timerContainer.classList.add('sticky');
+        } else {
+            timerContainer.classList.remove('sticky');
+        }
+    }, { passive: true });
+    */
+
+}());
+</script>
+
+<!-- ========================================
+     INSTRUÇÕES DE USO:
+
+     1. POSICIONAMENTO:
+        Cole no topo da página de vendas (content/ebooks/rota-das-milhas.md)
+
+     2. MODOS DO TIMER:
+        EVERGREEN (recomendado): cada visitante tem suas próprias X horas
+          TIMER_MODE = 'evergreen'
+          TIMER_DURATION_HOURS = 2
+
+        FIXO: todos veem countdown até data específica
+          TIMER_MODE = 'fixed'
+          FIXED_END_DATE = new Date('2026-06-01T23:59:59')
+
+     3. RESETAR PARA TESTES (console do browser):
+        localStorage.removeItem('urgencyTimerEnd'); location.reload();
+
+     4. TIMER STICKY:
+        Descomente a seção "Timer Sticky" no JavaScript.
+
+     ======================================== -->

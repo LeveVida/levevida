@@ -1,0 +1,452 @@
+<!-- ========================================
+     POP-UP DE SAÍDA (EXIT INTENT)
+     Coloque este código no final de layouts/partials/footer.html
+     ======================================== -->
+
+<!--
+  CORREÇÃO DE REFLOW FORÇADO:
+  Visibilidade controlada por classe CSS (.is-visible) em vez de
+  style.display inline. Isso evita que o browser precise recalcular
+  layout entre uma escrita (display) e a próxima leitura de geometria.
+  O <body> overflow também é tratado via classe .popup-open.
+-->
+<div id="exitPopup" class="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exitPopupTitle" aria-hidden="true">
+    <div class="exit-popup-overlay"></div>
+    <div class="exit-popup-content">
+        <button class="exit-popup-close" aria-label="Fechar oferta">&times;</button>
+        
+        <div class="exit-popup-body">
+            <div class="exit-popup-emoji" aria-hidden="true">🎁</div>
+            
+            <h2 id="exitPopupTitle" class="exit-popup-title">Espere! Antes de Sair...</h2>
+            
+            <p class="exit-popup-subtitle">
+                Ganhe <strong>10% de DESCONTO</strong> no e-book ROTA DAS MILHAS
+            </p>
+            
+            <div class="exit-popup-offer">
+                <div class="price-strike">De R$ 97 por R$ 47</div>
+                <div class="price-special">
+                    <span class="price-label">Por apenas</span>
+                    <span class="price-value">R$ 42,30</span>
+                </div>
+                <div class="price-savings">Economia total de R$ 54,70!</div>
+            </div>
+            
+            <div class="exit-popup-benefits">
+                <h3>🎯 O que você vai receber:</h3>
+                <ul>
+                    <li>✅ 12 Capítulos Completos</li>
+                    <li>✅ Planilhas e Calculadoras</li>
+                    <li>✅ Suporte por WhatsApp</li>
+                    <li>✅ Atualizações Vitalícias</li>
+                    <li>✅ Garantia de 7 Dias</li>
+                </ul>
+            </div>
+            
+            <div class="exit-popup-urgency">
+                ⏰ <strong>Oferta válida apenas para os próximos 10 minutos!</strong>
+            </div>
+            
+            <a href="/ebooks/rota-das-milhas/?desconto=10OFF" class="exit-popup-btn" id="exitPopupCta">
+                🚀 Quero Meu Desconto Agora!
+            </a>
+            
+            <p class="exit-popup-disclaimer">
+                Use o cupom <strong>10OFF</strong> no checkout
+            </p>
+        </div>
+    </div>
+</div>
+
+<style>
+/*
+  VISIBILIDADE DO POPUP CONTROLADA POR CSS:
+  Por padrão oculto; a classe .is-visible o exibe.
+  Isso evita que o JS precise alternar style.display (escrita de layout)
+  e depois ler geometria — padrão que causa reflow forçado.
+*/
+.exit-popup {
+    /* Oculto por padrão — sem display:none inline no HTML */
+    visibility: hidden;
+    pointer-events: none;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Transição suave ao aparecer/desaparecer */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Classe adicionada pelo JS para exibir o popup */
+.exit-popup.is-visible {
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Overflow do body controlado por classe — não por style.overflow inline */
+body.popup-open {
+    overflow: hidden;
+}
+
+.exit-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.exit-popup-content {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    /* Animação de entrada via transform/opacity — não causa layout */
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    will-change: transform, opacity;
+}
+
+.exit-popup.is-visible .exit-popup-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.exit-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 10;
+    /* Touch target: 44×44 px */
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.exit-popup-close:hover {
+    color: #333;
+    transform: rotate(90deg);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.exit-popup-body {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.exit-popup-emoji {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 1s infinite;
+    display: block;
+    will-change: transform;
+}
+
+.exit-popup-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.exit-popup-subtitle {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.exit-popup-subtitle strong {
+    color: #e74c3c;
+    font-size: 1.5rem;
+}
+
+.exit-popup-offer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+}
+
+.price-strike {
+    text-decoration: line-through;
+    opacity: 0.8;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.price-special {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.price-label { font-size: 1rem; opacity: 0.9; }
+
+.price-value {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.price-savings {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+.exit-popup-benefits {
+    text-align: left;
+    margin: 2rem 0;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.exit-popup-benefits h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.exit-popup-benefits ul {
+    list-style: none;
+    padding: 0;
+}
+
+.exit-popup-benefits li {
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.exit-popup-urgency {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+}
+
+/* Touch target: mínimo 44px */
+.exit-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+    padding: 0 2.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+    margin: 1.5rem 0;
+    /* Animações em transform/opacity — sem layout thrashing */
+    will-change: transform;
+}
+
+.exit-popup-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(231, 76, 60, 0.6);
+}
+
+.exit-popup-disclaimer {
+    font-size: 0.9rem;
+    color: #999;
+    margin-top: 1rem;
+}
+
+.exit-popup-disclaimer strong {
+    color: #e74c3c;
+    background: #fff3cd;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Animação de bounce usando transform (composite-only — sem layout) */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0);     }
+    50%       { transform: translateY(-10px); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .exit-popup-body    { padding: 2rem 1.5rem; }
+    .exit-popup-title   { font-size: 1.5rem; }
+    .exit-popup-subtitle{ font-size: 1.1rem; }
+    .price-value        { font-size: 2.5rem; }
+    .exit-popup-btn     { font-size: 1.1rem; }
+}
+</style>
+
+<script>
+// Exit Intent Pop-up — sem reflow forçado
+(function () {
+    'use strict';
+
+    // ── FASE 1: TODAS AS LEITURAS DO DOM (antes de qualquer mutação) ─────────
+    var exitPopup = document.getElementById('exitPopup');
+    var closeBtn  = exitPopup.querySelector('.exit-popup-close');
+    var overlay   = exitPopup.querySelector('.exit-popup-overlay');
+    var ctaBtn    = document.getElementById('exitPopupCta');
+
+    var popupShown          = false;
+    var exitIntentTriggered = false;
+
+    // ── Leitura de viewport: feita UMA VEZ na inicialização ──────────────────
+    // (antes de qualquer mutação de DOM — não causa reflow forçado)
+    var isMobile = window.innerWidth <= 768;
+
+    // ── Verifica localStorage (sem tocar no DOM) ──────────────────────────────
+    function wasShownToday() {
+        var lastShown = localStorage.getItem('exitPopupShown');
+        if (!lastShown) return false;
+        return new Date(lastShown).toDateString() === new Date().toDateString();
+    }
+
+    // ── showPopup: BATCH WRITE via classe CSS ─────────────────────────────────
+    /*
+      ANTES (causava múltiplos recálculos de layout):
+        exitPopup.style.display  = 'flex';     ← escrita #1 (invalida layout)
+        document.body.style.overflow = 'hidden'; ← escrita #2 (invalida layout novamente)
+
+      DEPOIS (batch via classList — um único recálculo):
+        classList.add('is-visible') e classList.add('popup-open')
+        são aplicados juntos no mesmo rAF → browser faz UM recálculo só.
+    */
+    function showPopup() {
+        if (popupShown || wasShownToday()) return;
+        popupShown = true;
+
+        // Todas as escritas de DOM agrupadas em um único rAF
+        requestAnimationFrame(function () {
+            exitPopup.classList.add('is-visible');
+            exitPopup.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('popup-open');
+
+            // Foco acessível no botão de fechar após a transição CSS
+            setTimeout(function () { closeBtn.focus(); }, 350);
+        });
+
+        localStorage.setItem('exitPopupShown', new Date().toISOString());
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'popup_shown', {
+                event_category: 'exit_intent',
+                event_label: 'discount_offer'
+            });
+        }
+    }
+
+    // ── closePopup: BATCH WRITE via classe CSS ────────────────────────────────
+    function closePopup() {
+        // Todas as escritas agrupadas em um único rAF
+        requestAnimationFrame(function () {
+            exitPopup.classList.remove('is-visible');
+            exitPopup.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('popup-open');
+        });
+
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'popup_closed', {
+                event_category: 'exit_intent',
+                event_label: 'discount_offer'
+            });
+        }
+    }
+
+    // ── Detecção de saída ─────────────────────────────────────────────────────
+    // Não exibe no mobile (innerWidth já foi lido na inicialização)
+    if (!isMobile) {
+        document.addEventListener('mouseleave', function (e) {
+            if (e.clientY <= 0 && !exitIntentTriggered) {
+                exitIntentTriggered = true;
+                showPopup();
+            }
+        });
+    }
+
+    // Fallback: exibe após 30s (independente do dispositivo)
+    setTimeout(function () {
+        if (!exitIntentTriggered && !popupShown) {
+            showPopup();
+        }
+    }, 30000);
+
+    // ── Eventos de fechamento ─────────────────────────────────────────────────
+    closeBtn.addEventListener('click', closePopup);
+    overlay.addEventListener('click', closePopup);
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && popupShown) {
+            closePopup();
+        }
+    });
+
+    // ── Tracking de clique no CTA ─────────────────────────────────────────────
+    ctaBtn.addEventListener('click', function () {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'popup_conversion', {
+                event_category: 'exit_intent',
+                event_label: 'clicked_cta'
+            });
+        }
+    });
+
+}());
+</script>
+
+<!-- ========================================
+     INSTRUÇÕES DE USO:
+
+     1. Cole no final de layouts/partials/footer.html
+
+     2. O pop-up aparece quando:
+        - Mouse sai pela parte superior (desktop)
+        - OU após 30 segundos (qualquer dispositivo)
+
+     3. Exibe 1× por dia por usuário (localStorage)
+
+     4. Configure o cupom "10OFF" na sua plataforma (Hotmart/Kiwify)
+
+     5. Para desabilitar no mobile, o código já faz isso automaticamente.
+        Para re-habilitar, remova a condicional `if (!isMobile)` e o
+        bloco `var isMobile = ...`.
+
+     6. Para alterar a oferta, edite:
+        - .price-value (R$ 42,30)
+        - .exit-popup-disclaimer strong (10OFF)
+        - href do .exit-popup-btn
+     ======================================== -->
