@@ -1,91 +1,78 @@
-baseURL = 'https://levevida.blog.br/'
-languageCode = 'pt-br'
-title = 'Leve Vida - Voe Alto, Viva Leve!'
+# ============================================================
+#  LEVE VIDA — hugo.toml
+#  Última atualização: 2025
+#  Deploy: Netlify | Domínio: www.levevida.blog.br
+# ============================================================
 
-[params]
-  description = 'Aprenda estratégias reais de acúmulo de milhas para viajar mais gastando menos. E-book completo com planilhas e ferramentas práticas.'
-  author = 'Blog Leve Vida'
-  
-  # Informações de contato ATUALIZADAS
-  email = 'equipelevevida@gmail.com'
-  whatsapp = '5565993317054'
-  
-  # Redes sociais CORRETAS
-  [params.social]
-    instagram = 'https://instagram.com/levevida8'
-    youtube = 'https://youtube.com/@levevida8'
-    tiktok = 'https://tiktok.com/@levevida88'
-    kwai = 'https://kwai.com/@levevida88'
-  
-  # Google Analytics (configure seu ID)
-  googleAnalytics = 'G-5THEF9N1MD'
-  
-  # SEO
-  [params.seo]
-    keywords = 'milhas aéreas, pontos de cartão, viagem barata, passagens aéreas, acúmulo de milhas, programas de fidelidade'
+baseURL       = "https://www.levevida.blog.br"
+languageCode  = "pt-br"
+defaultContentLanguage = "pt-br"
+title         = "Leve Vida | Milhas, Viagens e Economia"
+theme         = "Voe Alto, Viva Leve!"
 
-# Menu Principal
-[menu]
-  [[menu.main]]
-    name = 'Início'
-    url = '/'
-    weight = 1
-  
-  [[menu.main]]
-    name = 'Guias'
-    url = '/guias/'
-    weight = 2
-  
-  [[menu.main]]
-    name = 'Artigos'
-    url = '/artigos/'
-    weight = 3
-  
-  [[menu.main]]
-    name = 'E-books'
-    url = '/ebooks/'
-    weight = 4
-  
-  [[menu.main]]
-    name = 'Sobre'
-    url = '/sobre/'
-    weight = 5
-  
-  [[menu.main]]
-    name = 'Contato'
-    url = '/contato/'
-    weight = 6
+# Minificação automática no build de produção
+[build]
+  writeStats = false
 
-# Configurações de conteúdo
+[minify]
+  disableCSS        = false
+  disableHTML       = false
+  disableJS         = false
+  disableJSON       = false
+  disableSVG        = false
+  disableXML        = false
+  minifyOutput      = true
+
+# ── Paginação ──────────────────────────────────────────────
+paginate = 6
+
+# ── Taxonomias ─────────────────────────────────────────────
 [taxonomies]
-  tag = 'tags'
-  categoria = 'categorias'
+  category = "categories"
+  tag      = "tags"
 
-# Output formats
+# ── Saídas ─────────────────────────────────────────────────
 [outputs]
-  home = ['HTML', 'RSS', 'JSON']
-  section = ['HTML', 'RSS']
+  home    = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
 
-# Permalinks
-[permalinks]
-  artigos = '/artigos/:slug/'
-  guias = '/guias/:slug/'
-  ebooks = '/ebooks/:slug/'
+# ── Parâmetros Globais ─────────────────────────────────────
+[params]
+  description  = "Aprenda estratégias reais de acúmulo de milhas para viajar mais gastando menos. E-book completo com planilhas e ferramentas práticas."
+  author       = "Blog Leve Vida"
+  tagline      = "Voe Alto, Viva Leve!"
+  whatsapp     = "5565993317054"
+  email        = "equipelevevida@gmail.com"
+  analyticsID  = "G-5THEF9N1MD"
 
-# Markup
+  # Redes Sociais
+  instagram    = "https://instagram.com/levevida8"
+  youtube      = "https://youtube.com/@levevida8"
+  tiktok       = "https://tiktok.com/@levevida88"
+  kwai         = "https://kwai.com/@levevida88"
+
+  # E-book / Hotmart
+  ebookURL     = "https://hotm.io/rota-das-milhas-ebook"
+  ebookPrice   = "R$ 47"
+  ebookCoupon  = "LEVEVIDA10"
+
+  # SEO / Open Graph
+  ogImage      = "/images/og-levevida.jpg"
+  twitterCard  = "summary_large_image"
+
+[params.social]
+  facebook = ""
+  twitter  = ""
+
+# ── Markup ─────────────────────────────────────────────────
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+  [markup.goldmark.renderer]
+    unsafe = true          # permite HTML nos arquivos .md
   [markup.highlight]
-    style = 'monokai'
-    lineNos = false
+    style = "monokai"
 
-# Privacy
-[privacy]
-  [privacy.googleAnalytics]
-    anonymizeIP = true
-    respectDoNotTrack = true
-  [privacy.youtube]
-    privacyEnhanced = true
-
+# ── Segurança ──────────────────────────────────────────────
+[security]
+  enableInlineShortcodes = false
+  [security.funcs]
+    getenv = ["^HUGO_", "^CI$"]
