@@ -491,7 +491,7 @@ Se você busca um destino de praia com infraestrutura completa, águas calmas pe
 As piscinas naturais só ficam acessíveis na **maré baixa**. Consulte todos os dias:
 
 - **App recomendado:** "Tábua de Marés - Brasil" (gratuito)
-- **Sites:** https://www.tabua-de-mares.com
+- **Sites:** https://www.tabuademares.com
 - Melhor horário: 2h antes e 2h depois da maré mais baixa do dia
 
 **Exemplo:**
